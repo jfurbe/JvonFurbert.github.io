@@ -1,6 +1,6 @@
 {
 	"name": "fcc-learn-npm-package-json",
-	"Author":"J'Von",
+	"Author": "J'Von",
 	"dependencies": {
 		"express": "^4.14.0"
 	},
@@ -11,5 +11,8 @@
 	"repository": {
 		"type": "git",
 		"url": "https://idontknow/todo.git"
+	},
+	"devDependencies": {
+		"gh-pages": "^3.2.3"
 	}
 }
