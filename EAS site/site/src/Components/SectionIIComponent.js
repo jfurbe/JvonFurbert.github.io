@@ -22,19 +22,13 @@ function getSection(output, i, sec, data, oldD){
       });
   }
   })
-  console.log(arr2)
   return arr2
 }
 
 const SectionII = (props) => {
   const { control, register, handleSubmit, } = useForm();  //formState: { errors }
 
-  const [sec, setSec] = useState('')
   var output = Object.entries(FORMS[2]).map(([item, description,amt = '', prevAmt]) => ({item, description, amt, prevAmt}));
-
-  console.log(Object.keys(props.currentEAS.dic1))
-
-
   let section2 = getSection(output, 2, 'SectionII', props.currentEAS.dic1, props.oldEAS)
 
 

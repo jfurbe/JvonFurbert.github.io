@@ -9,12 +9,13 @@ import smiley from './SNice.png';
 import Day4 from './Days/Day4';
 import Day5 from './Days/Day5';
 import Day6 from './Days/Day6';
+import Day7 from './Days/Day7';
 
 function App() {
   const [Page, setPage] = useState();
   
   const [rotated, setRotated] = useState(0)
-  let comps = {Day1, Day2, Day4, Day5, Day6}
+  let comps = {Day1, Day2, Day4, Day5, Day6, Day7}
 
   const style = {backgroundColor:"black", 
 backgroundImage:`url(${smiley})`, 
@@ -48,7 +49,8 @@ backgroundRepeat:"no-repeat"}
       <Button variant="outline-success" onClick={handleClick3} id={3}> Day 3</Button>
       <Button variant="outline-success" onClick={handleClick} id={4}> Day 4</Button>
       <Button variant="outline-success" onClick={handleClick} id={5}> Day 5</Button>
-      <Button variant="outline-success" onClick={handleClick} id={5}> Day 6</Button>
+      <Button variant="outline-success" onClick={handleClick} id={6}> Day 6</Button>
+      <Button variant="outline-success" onClick={handleClick} id={7}> Day 7</Button>
       </Alert>
     <Container>
     

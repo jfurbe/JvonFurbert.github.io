@@ -1,5 +1,5 @@
 import React from 'react';
-import {useTable, instance, usePagination} from 'react-table';
+import {useTable, usePagination} from 'react-table';
 import {Table} from 'react-bootstrap';
 import ReactHtmlParser from "react-html-parser";
 
@@ -9,7 +9,6 @@ const EditableCell = ({
   row: { index },
   column: { id },
   updateMyData, // This is a custom function that we supplied to our table instance
-  exportMyData
 }) => {
   // We need to keep and update the state of the cell normally
   const [value, setValue] = React.useState(initialValue)
@@ -72,7 +71,6 @@ function Tablee({columns, data, updateMyData, exportMyData, skipPageReset}){
       // That way we can call this function from our
       // cell renderer!
       updateMyData,
-      exportMyData,
     },
     usePagination
   )

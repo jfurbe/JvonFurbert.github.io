@@ -10,6 +10,7 @@ export const reducer = (state = {
       ictData: {},
       oldICt: {},
       oldEAS: {},
+      section: '',
       }, action) => {
     switch (action.type) {
 

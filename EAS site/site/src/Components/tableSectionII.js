@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import {useTable, instance, usePagination} from 'react-table';
+import React from 'react';
+import {useTable, usePagination} from 'react-table';
 import {Table} from 'react-bootstrap';
 import ReactHtmlParser from "react-html-parser";
 
@@ -75,7 +75,7 @@ function Tablee({columns, data, updateMyData, skipPageReset}){
   )
   React.useEffect(()=>  {
     setPageSize(Number(30))
-  })
+  },[pageSize])
   return(
     <>
     
