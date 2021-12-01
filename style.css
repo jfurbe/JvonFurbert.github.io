@@ -1,0 +1,24 @@
+#bgImage {
+   opacity: 0.2;
+   position: absolute;
+   top: 25vh;
+   left: 25vw;
+   width: 50vw;
+   
+  }
+
+#main {
+   opacity:.7;
+   position: relative;
+   height:80vh;
+}
+
+#main img {
+   height: 30vh;
+   width: 30vw;
+   margin: 5px;
+}
+
+body {
+   background-color: #2b2d2f;
+}
