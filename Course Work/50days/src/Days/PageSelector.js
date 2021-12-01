@@ -1,3 +1,4 @@
+import { alignContent } from '@xstyled/system';
 import React, {useState} from 'react';
 import {Container, Row, Col, Image} from 'react-bootstrap';
 
@@ -6,7 +7,7 @@ const PageSelector = ({imgs})=> {
 
       const style1 = { width:"200px", height:"200px", transition:"width 1s , height 1s"}
       const style2 = { width:"400px", height:"400px", transition:"width 1s, height 1s"}
-      const style3 = { width:"100px", height:"100px", transition:"width 1s, height 1s"}
+      const style3 = { width:"100px", height:"100px", transition:"width 1s, height 1s", opacity: "0.5", }
    
       const [hover, setHover] = useState([true,true,true,true])
       const [style, setStyle] = useState([style1,style1,style1,style1])

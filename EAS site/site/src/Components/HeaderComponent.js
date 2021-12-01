@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Navbar, Container, Nav,
-        Button, Modal, Form, } from 'react-bootstrap';
+        Button } from 'react-bootstrap';
 import {NavLink} from 'react-router-dom';
 import { UserContext } from "../Util/UserProvider";
 import LoginModal from './LoginModal';
@@ -17,7 +17,7 @@ const Header = (props)=> {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [state, dispatch ] = React.useContext(UserContext);
   
-  const AdminLinks = ()=> {
+  const AdminLinks = ()=> { //Links loaded for admin users
     return(
       <>
       <Nav.Item>
@@ -102,8 +102,8 @@ const handleLogin = (userName, password)=> {
                   </NavLink>
               </Nav.Item>
               <Nav.Item>
-                <NavLink className="nav-link" to="/aboutus">
-                  <span className="fa fa-info fa-lg"></span> About Us
+                <NavLink className="nav-link" to="/refGuide">
+                  <span className="fa fa-info fa-lg"></span> Reference Guide
                 </NavLink>
               </Nav.Item>
               <Nav.Item>

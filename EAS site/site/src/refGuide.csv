@@ -1,0 +1,259 @@
+Index                                                    , Item
+,
+Accounting services expenses,P2810
+Advertising expenses,P2820
+Advisory board fees,D1000
+Agency Fees,P2810
+AGM Expenses,P2900
+Agricultural materials and supplies purchases,P2111
+"Airline tickets, purchased locally",P2830
+Alcohol sales,P1113
+Audit services expenses,P2810
+Bank Cards,P2510
+Bad debt,D7520
+Bank service charges,P2510
+"Bank service charges, income",P1111
+Boat rental income,P1111
+Bottled water (Pure water),P2900
+Brokerage commissions,P2810
+Building cleaning expenses,P2900
+Building lease expenses,P2610
+Building rent expenses,P2610
+"Buildings, acquisitions",P5114
+"Buildings, disposals",P5114
+"Buildings, extensions",P5114
+"Buildings, major renovations",P5114
+"Business travel, local including taxi and limo svc",P2830
+Call Center,P2810
+Cellular phone charges,P2420
+Checkbook charges,P2510
+China purchases,P2155
+Church Equipment,P2170
+City taxes,D2990
+"Cleaning services, building",P2900
+Cloud Services,P2700
+Commissions - employee compensation,D1000
+Commissions – income,P1111
+Company fees,D2990
+Computer consulting services expenses,P2700
+"Computer equipment, acquisitions & disposals",P5116
+Computer maintenance & repair expenses,P2700
+Computer rental/leasing expenses,P2630
+Computer software,P5120
+"Computer software, customized",P5120
+"Computer software, off-the shelf",P5120
+"Computer software, own-account",P5120
+Concert Expenses,P2900
+Construction equipment rental income,P1630
+Construction materials and supplies purchases,P2130
+Consumer goods rental income,P1115
+Corporate consulting services expenses,P2810
+Corporation taxes,D2990
+Cost of bar and wine sales,P2153
+Cost of departmental sales,P2154
+Cost of Goods Sold,P1111
+Cost of living allowances,D1000
+Cost of room sales,P2151
+Credit Card commission,P2510
+Custodial services,P2900
+Custody Expenses,P2510
+Cutlery purchases,P2155
+"Data Storage, electronic (Inc. cloud services)",P2700
+"Data Storage, hard copy",P2412
+Delivery service income ,P1189
+Demurrage,P2412
+Depreciation  ,K1000
+Director's fees ,D1000
+Discounts   ,P1111
+Dividends received    ,D4001
+Dividends received (banks only),D4211
+Donations paid         ,D7520
+Donations received     ,D7511
+Draft Charges,P2510
+"Durable goods, acquisitions & disposals",P5116
+Electrical equipment rental ,P5115
+Electricity expenses,P2220
+Employee benefits    ,D1000
+Employee bonuses ,D1000
+Employee insurance benefits,D1000
+Employee pension contributions ,D1000
+"Entertainment expenses, client ",P2840
+"Entertainment expenses, employee ",P2840
+"Equipment, acquisitions ",P5116
+"Equipment, disposals  ",P5116
+Exhibit Expenses,P2900
+Fax services         ,P2420
+"Fixed assets, deterioration ",K1000
+Flowers,P2170
+Food or Liquor licensing fee,D2990
+Food purchases for rest homes,P2900
+Food purchases for restaurants  ,P2152
+Foreign exchange gains or losses,Exclude
+Freelance Staff,D1000
+"Freight charges, local  ",P2412
+"Freight charges, local (agriculture only)",P2411
+Fuel purchases               ,P2160      
+Furniture rental expenses ,P2630     
+Furniture rental income ,P1115      
+Gasoline purchases,P2160  
+Gifts paid,D7520
+Glassware purchases,P2155
+Grants received     ,D7511
+Gratuities (other dept sales)  ,P1114G  
+Gratuities (restaurant sales),P1112G   
+Gratuities (room sales)     ,P1111G
+Gratuities (tips paid to employees) ,D1112
+Gratuities (wine & bar sales)    ,P1113G
+Health licensing fees  ,D2990
+Hedging,Excluded
+Help Desk Fees,P2810
+Honoraria (BPSU)    ,D1000
+Hotel occupancy tax (paid to government),D2142
+"Housing, cost of, employer's portion  ",D1000  
+Gross income from rental/lease of building ,P1610
+Immigration Fees,D2990
+"Insurance premiums, property  ",P2520     
+Interest paid    ,D4009
+Interest paid (construction only) ,D4590 
+Interest paid (banks only)    ,D4190 
+Interest received  ,D4001
+Interest received (banks only) ,D4110 
+Internet advertisements ,P2820     
+Internet charges ,P2420
+"Inventories, change",P5200
+"Inventories, finished goods, closing ",P5221 
+"Inventories, finished goods, opening",P5229
+"Inventories, livestock, closing",P5211
+"Inventories, livestock, opening ",P5219
+"Inventories, resale goods, closing ",P5231
+"Inventories, resale goods, opening ",P5239
+"Inventories, work-in-progress, closing",P5221
+"Inventories, work-in-progress, opening",P5229   
+Janitorial services  ,P2900
+Kerosene purchases     ,P2160
+Land rent paid,D4009
+Land rent paid (construction only)       ,D4590
+"Landscaping, grounds maintenance   ",P2240 
+Land taxes                                        ,D2990  
+Laundry,P2900
+Legal services expenses    ,P2810      
+Life insurance claims paid/payable ,F6109
+Life insurance premiums received/receivable ,F6101
+"Life insurance reserves, changes",F6201
+Linen purchases             ,P2155
+Loss on Sale of Building,Excluded
+Loss on Sale of Fixed Assets,Excluded
+Machinery & equipment rental income,P1630
+"Machinery, acquisitions   ",P5116
+"Machinery, disposals",P5116  
+Magazine subscriptions,P2900     
+Maintenance & repair of boating equipment ,P2213
+Maintenance & repair of engines  ,P2212
+Maintenance & repair of M&E,P2211
+Maintenance & repair of motor vehicles,P2300
+Maintenance & repair of plant & equipment  ,P2214
+Maintenance & repair of radio equipment   ,P2212
+"Maintenance & repair of equipment, income",P1111 
+"Maintenance & repair of motor vehicles, income",P1112
+Management advisory services expenses ,P2810  
+Marina sales           ,P1111M
+Marketing cost ,P2820
+"Meals, cost of, employer's portion    ",D1000 
+Media costs                ,P2820
+"Membership dues, income   ",P1112      
+Messenger services  ,P2430
+Mineral exploration,P5120
+Minor maintenance & repair of buildings,P2240  
+Monthly Service Charge,P2510
+Mooring rents                       ,P2900
+Motor vehicle license fees     ,D2990
+Non-life insurance claims paid/payable   ,D7200
+Non-life insurance premiums rec’d/receivable,D7101
+"Non-life insurance reserves, changes",F6203 
+Occupancy tax collected      ,P1111H
+Occupancy tax paid,D2142
+Office equipment rental income        ,P1630
+Office equipment rental/leasing expenses  ,P2630
+"Office equipment, acquisitions & disposals  ",P5116
+Office Losses,Excluded
+Office space lease expenses,P2610
+Office space rental expenses    ,P2610
+Office supplies purchases,P2170   
+Other departmental sales,P1114  
+Other operating income ,P1189
+Outsourcing of construction work   ,P2230
+Overtime payments,D1000
+Packaging materials purchases   ,P2140  
+Parts & supplies purchases      ,P2190
+Payroll processing fees          ,P2810
+"Payroll taxes, employee's portion   ",D1000 
+"Payroll taxes, employer's portion   ",D2910   
+Pension fund contributions received/receivable ,D6101 
+"Pension fund reserves, changes  ",F6202    
+Post office box rentals      ,P2430
+Postage expenses       ,P2430
+Poster costs      ,P2820
+Printing (advertising),P2820
+Printing (other),P2900
+Professional fees expenses     ,P2810    
+Professional licenses     ,D2990
+Professional supplies purchases,D2180   
+Promotion expenses        ,P2820
+Property appraisal expenses   ,P2620
+Property appraisal income   ,P1112
+Property development expenses,P2620  
+Property development income   ,P1112
+Property management expenses ,P2620 
+Property management income  ,P1112 
+Property taxes    ,D2990
+Radio advertisements   ,P2820
+Radio transmission charges    ,P2420
+Raw material purchases for manufacturing   ,P2120
+Real estate agency services expenses  ,P2620
+Real estate agency services income  ,P1112
+Recoveries,P2900
+Refunds                                   ,P1111   
+Rental income   ,P1111
+Rep Fees,P2810
+"Repair services, miscellaneous   ",P1113 
+Resale goods purchases ,P1129
+Resale goods sales           ,P1121
+Research & Development ,Excluded
+Royalties,D2900
+Royalties paid (construction only)  ,D4590
+Salaries           ,D1000
+Sales,P1111
+Scholarships paid   ,D7520
+Security expenses   ,P2900
+Severance expenses,D1000
+Shipping/Freight Charges,P2412
+Sick pay             ,D1000
+Social insurance benefits paid/payable  ,D6220
+Staff training               ,P2900
+Stamp duties        ,D2990    
+Stationery purchases    ,P2170
+Stock taking expenses,P2810
+Stock options             ,D1000
+Storage,P2412
+Subscriptions & Dues,P2900
+Subventions received  ,D7511
+Swift,P2510
+Tax services expenses    ,P2810
+Taxi costs                 ,P2412
+Telephone charges ,P2420
+Television commercials       ,P2820
+Television transmission charges ,P2420
+Telex services              ,P2420
+Training costs (all)         ,P2900
+Transport equipment rental income    ,P1113
+Trash removal,P2412
+Uniforms,P2155
+Upholsterers,P2240
+Vacation pay                ,D1000
+Wages         ,D1000     
+Water expenses (Piped)  ,P2220
+Wire Transfer charges,P2510
+Work permit fees       ,P2900
+Work-in-progress income   ,P1111
+Wrapping materials purchases  ,P2140
+Yellow pages advertisements,P2820

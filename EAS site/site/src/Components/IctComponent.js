@@ -2,14 +2,14 @@ import React,{useState, useCallback} from 'react';
 import {Button, Row, Col, Badge, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 import { useForm, Controller } from "react-hook-form";
-import Select from 'react-select'
+import Select from 'react-select';
 
 const Ict = ({currentICT, ictData, oldICT}) => {
 
 
-  const { control, register, handleSubmit,  setValue, getValues, formState: { errors } } = useForm( {defaultValues:currentICT});
-  const onSubmit = data => processData(data);
-
+  const { control, register,  handleSubmit, setValue, getValues, formState: { errors } } = useForm( {defaultValues:currentICT});
+  const onSubmit = (data) => processData(data);
+  
 
   console.log(oldICT)
   console.log(currentICT)
@@ -57,17 +57,7 @@ console.log(ictData)
 console.log(currentICT)
   }
 
-  const onChangeName = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const experimentName = e.target.value;
-    console.log(e)
-  }, [])
 
-  const onChangeN = e => {
-    //ictData[e.target.name] = e.target.value
-    console.log(ictData)
-    console.log(e)
-    console.log(getValues())
-  }
 
 
   return(
@@ -167,7 +157,7 @@ console.log(currentICT)
               <Col md={{offset:7, span:5}}>
               <Controller
               name="InternetUse"
-              render={({ field : {onBlue, onChange} }) => (
+              render={({ field : {onBlur, onChange} }) => (
                 <Select
 
                   options={[
@@ -192,7 +182,7 @@ console.log(currentICT)
               <Col md={{offset:3, span:9}}>
               <Controller
               name="Connection"
-              render= {({ field : {onBlue, onChange}}) =>(
+              render= {({ field : {onBlur, onChange}}) =>(
                 <Select
 
                   isMulti
@@ -219,7 +209,7 @@ console.log(currentICT)
 
               <Col  md={{offset:8, span:5}}>
                 <Controller
-                  render={({ field : {onBlue, onChange}}) => <input
+                  render={({ field : {onBlur, onChange}}) => <input
                   placeholder="Persons"
                   {...register("NumberInternetUsers")}
                   defaultValue={currentICT.NumberInternetUsers}
@@ -239,7 +229,7 @@ console.log(currentICT)
               <Col md={{offset:4, span:8}}>
               <Controller
                 name="InternalNetworks"
-                render= {({ field : {onBlue, onChange}}) =>(
+                render= {({ field : {onBlur, onChange}}) =>(
                   <Select
                   isMulti
                   className="basic-multi-select"
@@ -266,7 +256,7 @@ console.log(currentICT)
               <Col md={{offset:7, span:5}}>
               <Controller
               name="Extranet"
-              render={({ field : {onBlue, onChange}}) => (
+              render={({ field : {onBlur, onChange}}) => (
                 <Select
                   options={[
                     { value: "yes", label: "Yes" },
@@ -290,7 +280,7 @@ console.log(currentICT)
               <Col md={{offset:7, span:5}}>
               <Controller
               name="WebPresence"
-              render={({ field : {onBlue, onChange}}) => (
+              render={({ field : {onBlur, onChange}}) => (
                 <Select
                   options={[
                     { value: "yes", label: "Yes" },
@@ -314,7 +304,7 @@ console.log(currentICT)
               <Col md={{offset:4, span:5}}>
               <Controller
               name="InternetPurchases"
-              render={({ field : {onBlue, onChange}}) => (
+              render={({ field : {onBlur, onChange}}) => (
                 <Select
                   options={[
                     { value: "yes", label: "Yes - Enter Value" },
@@ -331,7 +321,7 @@ console.log(currentICT)
               </Col>
               <Col  md={{span:3}}>
                 <Controller
-                  render={({ field : {onBlue, onChange}}) => <input
+                  render={({ field : {onBlur, onChange}}) => <input
                   placeholder="Amount"
                   {...register("InternetPurchasesValue")}
                   defaultValue={currentICT.InternetPurchasesValue}
@@ -351,7 +341,7 @@ console.log(currentICT)
               <Col md={{offset:4, span:5}}>
               <Controller
               name="InternetSales"
-              render={({ field : {onBlue, onChange}}) => (
+              render={({ field : {onBlur, onChange}}) => (
                 <Select
                   options={[
                     { value: "yes", label: "Yes - Enter Value" },
@@ -367,7 +357,7 @@ console.log(currentICT)
               </Col>
               <Col  md={{span:3}}>
                 <Controller
-                  render={({ field : {onBlue, onChange}}) => <input
+                  render={({ field : {onBlur, onChange}}) => <input
                   placeholder="Amount"
                   {...register("InternetSalesValue")}
                   defaultValue={currentICT.InternetSalesValue}
@@ -386,11 +376,11 @@ console.log(currentICT)
               </Col>
 
               <Col className="mb-1" md={{offset:3, span:2}}>
-
               <input type="checkbox"
                 {...register("Email")} />
-
+              
               </Col>
+              
               <Col className="mb-1" md={6}>
       {/* 1*/}  <label htmlFor="Email">Sending and Receiving e-mail</label>
               </Col>
@@ -398,7 +388,8 @@ console.log(currentICT)
               <Col  className="mb-1" md={{offset:3, span:2}}>
 
                 <input type="checkbox"
-                  {...register("internetTelephony")} />
+                  {...register("internetTelephony")} 
+                  />
               </Col>
               <Col className="mb-1" md={7}>
       {/* 2*/}  <label htmlFor="internetTelephony">
@@ -431,8 +422,11 @@ console.log(currentICT)
               <Col className="mb-1" md={{offset:3, span:2}}>
 
                 <input type="checkbox"
+                 
                   placeholder=""
-                  {...register("InfoFromGovtOrgs")} />
+                  
+                  {...register("InfoFromGovtOrgs")} 
+                  />
               </Col>
               <Col className="mb-1" md={6}>
       {/* 4*/}  <label htmlFor="InfoFromGovtOrgs">Getting information from general government organizations</label>

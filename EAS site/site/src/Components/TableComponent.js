@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTable} from 'react-table';
-import '../react_table_inverted.css';
+//import '../react_table_inverted.css';
 import {Table} from 'react-bootstrap';
 
 function Tablee({columns, data}){
@@ -14,7 +14,7 @@ function Tablee({columns, data}){
   } = useTable({ columns, data })
 
   return(
-    <Table striped dark {...getTableProps()} >
+    <Table striped bordered hover variant="dark" {...getTableProps()} >
            <thead>
              {headerGroups.map(headerGroup => (
                <tr {...headerGroup.getHeaderGroupProps()}>
@@ -68,11 +68,13 @@ function createCols(cols){
 }
 
 function Tables(dataIn){
-const cols = createCols(dataIn.dataIn[0]);
+dataIn = (dataIn.dataIn ? dataIn.dataIn : dataIn)
+console.log(dataIn)
+const cols = createCols(dataIn[0]);
 
 
 const data = React.useMemo(
-   () => dataIn.dataIn,
+   () => dataIn,
    []
  )
 

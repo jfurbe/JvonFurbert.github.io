@@ -1,6 +1,5 @@
 import React from 'react';
-import {Row, Col, } from 'react-bootstrap';
-import { useForm, Controller } from "react-hook-form";
+import { useForm} from "react-hook-form";
 import Tables from './tableSectionV';
 import FORMS from './formfields.js';
 import formSel from './formSelection.js';
@@ -12,7 +11,7 @@ function getSection(output, i, sec, data, mid, oldD){
     let ref = item.item;
 
     if (formSel[i][sec].includes(item.item) ){
-      if (mid == 'PAYMENTS') {
+      if (mid === 'PAYMENTS') {
         arr2.push({
           item:ref,
           PAYEMNTS:item[mid],
@@ -20,7 +19,7 @@ function getSection(output, i, sec, data, mid, oldD){
           prevAmt: oldD[ref]
         });
       }
-      else if (mid =='RECEIPTS'){
+      else if (mid ==='RECEIPTS'){
         arr2.push({
           item:ref,
         RECEIPTS:item[mid],
@@ -28,7 +27,7 @@ function getSection(output, i, sec, data, mid, oldD){
         prevAmt: oldD[ref]
       });
       }
-      else if (mid =='ASSETS'){
+      else if (mid ==='ASSETS'){
         arr2.push({
           item:ref,
         RECEIPTS:item[mid],
@@ -36,7 +35,7 @@ function getSection(output, i, sec, data, mid, oldD){
         Dec2020: data[ref][1]
       });
       }
-      else if (mid =='LIABILITIES'){
+      else if (mid ==='LIABILITIES'){
         arr2.push({
           item:ref,
         RECEIPTS:item[mid],
@@ -57,13 +56,13 @@ console.log(props)
   var output = Object.entries(FORMS[0]).map(([item, PAYMENTS,Amt = '']) => ({item,PAYMENTS, Amt}));
   let sectiona = getSection(output, formSel.length - 1, 'SectionVa', props.currentEAS.dic3, 'PAYMENTS', props.oldEAS)
 
-  var output = Object.entries(FORMS[0]).map(([item, RECEIPTS,Amt = '']) => ({item,RECEIPTS, Amt}));
+   output = Object.entries(FORMS[0]).map(([item, RECEIPTS,Amt = '']) => ({item,RECEIPTS, Amt}));
   let sectionb = getSection(output, formSel.length - 1, 'SectionVb', props.currentEAS.dic3, 'RECEIPTS', props.oldEAS)
 
-  var output = Object.entries(FORMS[0]).map(([item, ASSETS, Dec2019 = '', Dec2020 = ""]) => ({item,ASSETS, Dec2019, Dec2020}));
+   output = Object.entries(FORMS[0]).map(([item, ASSETS, Dec2019 = '', Dec2020 = ""]) => ({item,ASSETS, Dec2019, Dec2020}));
   let sectionc = getSection(output, formSel.length - 1, 'SectionVc', props.currentEAS.dic4, 'ASSETS', props.oldEAS)
 
-  var output = Object.entries(FORMS[0]).map(([item, LIABILITIES, Dec2019 = '', Dec2020 = ""]) => ({item,LIABILITIES, Dec2019, Dec2020}));
+  output = Object.entries(FORMS[0]).map(([item, LIABILITIES, Dec2019 = '', Dec2020 = ""]) => ({item,LIABILITIES, Dec2019, Dec2020}));
   let sectiond = getSection(output, formSel.length - 1, 'SectionVd', props.currentEAS.dic4, 'LIABILITIES', props.oldEAS)
 
 

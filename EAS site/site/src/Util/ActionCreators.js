@@ -58,7 +58,6 @@ export const getOldIct = (searchItem, dispatch) => {
 };
 
 export const getOldEas = (searchItem, dispatch) => {
-    
   return fetch(baseUrl + 'OldEasSearches/'+ searchItem, {
       method: "GET",
       headers: {
@@ -79,7 +78,7 @@ export const getOldEas = (searchItem, dispatch) => {
           throw error;
     })
   .then(response => response.json())
-  .then(response => dispatch(storeOldEAS(response[0])))
+  .then(response => response.length > 0 && dispatch(storeOldEAS(response[0])))
   .catch(error =>  { console.log('post comments', error.message); alert('Your comment could not be posted\nError: '+error.message); });
 };
 
@@ -120,7 +119,7 @@ export const emailSearch = (searchItem, dispatch) => {
       credentials: "same-origin"
   })
   .then(response => {
-      console.log(response);
+      
       if (response.ok) {
         return response;
       } else {

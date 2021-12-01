@@ -30,7 +30,8 @@ const SlidingImgPanel = ({image})=> {
          <div className='ps-4' style={showImage}>
           <Image
             src={image}
-           onClick={handleImageClick}
+           onMouseEnter={handleImageClick}
+           onMouseLeave={handleImageClick}
            aria-controls="example-collapse-text"
            aria-expanded={open}
            style={{maxWidth: 'initial', height:'500px'}}

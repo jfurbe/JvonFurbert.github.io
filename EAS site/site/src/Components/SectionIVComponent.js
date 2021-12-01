@@ -4,9 +4,10 @@ import { useForm, Controller } from "react-hook-form";
 import Tables from './tableSectionIV';
 
 
-const SectionIV = ({currentEAS}) => {
+const SectionIV = ({currentEAS, formType}) => {
   const { control, register, handleSubmit, } = useForm();  //formState: { errors }
-  console.log(currentEAS)
+  let section4a = '';
+
   const deprVars = [
     {"ITEM":"P5114", "STOCK OF CAPITAL":"Buildings and other structures", "NET Opening Balance":currentEAS.dic2.P5114,"PLUS Acquisitions":currentEAS.dic2.P5114p,"LESS Disposals":currentEAS.dic2.P5114l,"Depreciation":currentEAS.dic2.P5114d,"NET Closing Balance":currentEAS.dic2.P5114f},
     {"ITEM":"P5116","STOCK OF CAPITAL":"Motor vehicle and other transport equipment", "NET Opening Balance":currentEAS.dic2.P5116,"PLUS Acquisitions":currentEAS.dic2.P5116p,"LESS Disposals":currentEAS.dic2.P5116l,"Depreciation":currentEAS.dic2.P5116d,"NET Closing Balance":currentEAS.dic2.P5116f},
@@ -19,22 +20,102 @@ const SectionIV = ({currentEAS}) => {
     {"ITEM":"P5300","STOCK OF CAPITAL":"Valuables", "NET Opening Balance":currentEAS.dic2.P5300,"PLUS Acquisitions":currentEAS.dic2.P5300p,"LESS Disposals":currentEAS.dic2.P5300l,"Depreciation":currentEAS.dic2.P5300d,"NET Closing Balance":currentEAS.dic2.P5300f}
 
   ]
+  switch(formType){
+    case "5":
+      section4a = (
+        <Row className="mb-3 form-group">
+        <Col md={{offset:2, span:7}}>
+        <label className="mb-1" > List the different types of construction activity engaged in: </label>
+        </Col>
 
-  //var output = Object.entries(deprVars).map(([key, value,amt = '']) => ({key,value, amt}));
-  //console.log(output)
-  return(
-    <div>
-    <div className="dark text-light p-2 m-2 text-center">
-    <h5>SECTION IV – ADDITIONAL INFORMATION</h5></div>
+        <Col  md={{offset:3, span:7}}>
+          <Controller
+            render={({ field : {onChange, onBlur} }) => <input
+            placeholder=""
+            {...register("ConstructionActivity1")}
+            defaultValue={currentEAS.ConstructionActivity1}
+            onChange={onChange}
+            />}
+            name="ConstructionActivity1"
+            control={control}
 
-    <form>
-    <Row className="mb-3 form-group">
+          />
+          <Controller
+            render={({ field : {onChange, onBlur} }) => <input
+            placeholder=""
+            {...register("ConstructionActivity2")}
+            defaultValue={currentEAS.ConstructionActivity2}
+            onChange={onChange}
+            />}
+            name="ConstructionActivity2"
+            control={control}
+
+          />
+        </Col>
+        </Row>
+       ) ;
+       break;
+    case "6":
+      section4a = (
+        <>
+        <Row className="mb-3 form-group">
+        <Col md={{offset:2, span:7}}>
+        <label className="mb-1" > Please list the major goods sold, wholesale and retail or repair work done: </label>
+        </Col>
+
+        <Col  md={{offset:3, span:7}}>
+          <Controller
+            render={({ field : {onChange, onBlur} }) => <input
+            placeholder=""
+            {...register('RetailingActivity1')}
+            defaultValue={currentEAS.RetailingActivity1}
+            onChange={onChange}
+            />}
+            name='RetailingActivity1'
+            control={control}
+          />
+          <Controller
+            render={({ field : {onChange, onBlur} }) => <input
+            placeholder=""
+            {...register('RetailingActivity2')}
+            defaultValue={currentEAS.RetailingActivity2}
+            onChange={onChange}
+            />}
+            name='RetailingActivity2'
+            control={control}
+          />
+        </Col>
+        </Row>
+        <Row className="mb-3 form-group">
+        <Col md={{offset:2, span:7}}>
+        <label className="mb-1" > In your estimate, what percentage of the total income earned by your establishment comes directly from tourist? </label>
+        </Col>
+
+        <Col  md={{offset:3, span:5}}>
+          <Controller
+            render={({ field : {onChange, onBlur} }) => <input
+            placeholder="%"
+            {...register("PercentageIncomeBusinessTourist")}
+            defaultValue={currentEAS.PercentageIncomeBusinessTourist}
+            onChange={onChange}
+            />}
+            name="PercentageIncomeBusinessTourist"
+            control={control}
+
+          />
+        </Col>
+        </Row>
+        </>
+       );
+    break;  //'PercentageIncomeBusinessTourist':0,'PercentageIncomeVacationTourists':0,'PercentageIncomeLocals':0
+    case ("72") :
+      section4a = (<Row className="mb-3 form-group">
       <Col md={{offset:2, span:7}}>
-      <label className="mb-1" > In your estimate, what percentage of the total income earned by your establishment comes directly from tourist? </label>
+      <label className="mb-1" > In your estimate, what percentage of the total income earned by your establishment comes directly from business tourists and vacation tourists, and locals?  </label>
       </Col>
 
-      <Col  md={{offset:3, span:5}}>
-        <Controller
+      <Col  md={{offset:2, span:8}}>
+      <label className="p-1">Business Tourist</label><Controller
           render={({ field : {onChange, onBlur} }) => <input
           placeholder="%"
           {...register("PercentageIncomeBusinessTourist")}
@@ -45,8 +126,87 @@ const SectionIV = ({currentEAS}) => {
           control={control}
 
         />
+        <label className="p-1">Vacation Tourist</label><Controller
+          render={({ field : {onChange, onBlur} }) => <input
+          placeholder="%"
+          {...register('PercentageIncomeVacationTourists')}
+          defaultValue={currentEAS.PercentageIncomeVacationTourists}
+          onChange={onChange}
+          />}
+          name='PercentageIncomeVacationTourists'
+          control={control}
+
+        />
+        <label className="p-1">Locals</label><Controller
+          render={({ field : {onChange, onBlur} }) => <input
+          placeholder="%"
+          {...register("PercentageIncomeLocals")}
+          defaultValue={currentEAS.PercentageIncomeLocals}
+          onChange={onChange}
+          />}
+          name="PercentageIncomeLocals"
+          control={control}
+
+        />
       </Col>
-    </Row>
+      </Row>) ;
+    break;
+    case ("91" || "92") :
+      ( <Row className="mb-3 form-group">
+        <Col md={{offset:2, span:7}}>
+        <label className="mb-1" > How much revenue from Exempt and Permit Companies (items P1112 and P1113) was remitted abroad?</label>
+        </Col>
+
+        <Col  md={{offset:3, span:5}}>
+          <Controller
+            render={({ field : {onChange, onBlur} }) => <input
+            placeholder="$0.00"
+            {...register("RemittedAbroad")}
+            defaultValue={currentEAS.RemittedAbroad}
+            onChange={onChange}
+            />}
+            name="RemittedAbroad"
+            control={control}
+
+          />
+        </Col>
+        </Row>
+          );
+    break;
+    default:
+     section4a = (
+        <Row className="mb-3 form-group">
+        <Col md={{offset:2, span:7}}>
+        <label className="mb-1" > In your estimate, what percentage of the total income earned by your establishment comes directly from tourist? </label>
+        </Col>
+
+        <Col  md={{offset:3, span:5}}>
+          <Controller
+            render={({ field : {onChange, onBlur} }) => <input
+            placeholder="%"
+            {...register("PercentageIncomeBusinessTourist")}
+            defaultValue={currentEAS.PercentageIncomeBusinessTourist}
+            onChange={onChange}
+            />}
+            name="PercentageIncomeBusinessTourist"
+            control={control}
+
+          />
+        </Col>
+        </Row>
+       )
+       break;
+  }
+  //var output = Object.entries(deprVars).map(([key, value,amt = '']) => ({key,value, amt}));
+  //console.log(output)
+  return(
+    <div>
+    <div className="dark text-light p-2 m-2 text-center">
+    <h5>SECTION IV – ADDITIONAL INFORMATION</h5></div>
+
+    <form>
+      {section4a}
+
     <Row className="mb-3 form-group">
       <Col md={{offset:2, span:7}}>
       <label className="mb-1" > What is your estimated revenue loss due to Covid=19 related restrictions?</label>
@@ -70,7 +230,7 @@ const SectionIV = ({currentEAS}) => {
 
       <Col  md={{offset:3, span:5}}>
         <Controller
-          render={({ field : {onChange, onBlur} }) => <input placeholder="%" {...register("NumberEmployees")} />}
+          render={({ field : {onChange, onBlur} }) => <input placeholder="" {...register("NumberEmployees")} />}
           name="NumberEmployees"
           control={control}
 

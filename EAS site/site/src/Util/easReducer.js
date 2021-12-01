@@ -10,6 +10,7 @@ export const reducer = (state = {
       ictData: {},
       oldICt: {},
       oldEAS: {},
+      section1: {},
       section: '',
       }, action) => {
     switch (action.type) {
@@ -28,6 +29,9 @@ export const reducer = (state = {
 
       case ActionTypes.STORE_EAS:
         return {...state, isLoading: false, errMess: null, currentEAS:action.payload};
+
+      case ActionTypes.STORE_SEC1:
+          return {...state, isLoading: false, errMess: null, section1:action.payload};
 
       case ActionTypes.GET_EAS:
           return {...state, isLoading: false, errMess: null, businesses: action.payload};
@@ -148,36 +152,31 @@ export const initialState = {
     StaffTraining: false,
     CloudServices: false,
     ICTOutsourcing: false,
-    ICTOutsourceLocation:"",
-  },
+    ICTOutsourceLocation:"", },
   currentICT: {
     AccessingOtherFinancialServices: false,
     CloudServices: false,
-    Computers: "",
-    Connection: "",
-    DeliveringProductsOnline: false,
+    Computers: "",   Connection: "",   DeliveringProductsOnline: false,
     Email: false,
-    Extranet: "",
-    ICTOutsourceLocation: "",
-    ICTOutsourcing: "",
-    InfoFromGovtOrgs: false,
+    Extranet: "",   ICTOutsourceLocation: "",   ICTOutsourcing: "",   InfoFromGovtOrgs: false,
     InteractingWithGovtOrgs: false,
-    InternalNetworks: "",
-    InternalOrExternalRecruitment: false,
+    InternalNetworks: "",   InternalOrExternalRecruitment: false,
     InternetBanking: false,
-    InternetEnabledDevices: "",
-    InternetPurchases: "",
-    InternetPurchasesValue: "",
-    InternetSales: "",
-    InternetSalesValue: "",
-    InternetUse: "",
-    NumberComputerUsers: "",
-    NumberInternetUsers: "",
-    OtherLocations: "",
-    ProvidingCustomerServices: false,
+    InternetEnabledDevices: "",   InternetPurchases: "",   InternetPurchasesValue: "",   InternetSales: "",   InternetSalesValue: "",   InternetUse: "",   NumberComputerUsers: "",   NumberInternetUsers: "",   OtherLocations: "",   ProvidingCustomerServices: false,
     ResearchOfGoodsAndServices: false,
     StaffTraining: false,
-    WebPresence: "",
-    internetTelephony: false,
+    WebPresence: "",   internetTelephony: false,
   },
+  section1: {BusActivity: "", ceasedP: "", ceasedT: "", exempt: false,
+  foreignOther: false,
+  foreignOwned: "", govEnt: false,
+  limitedCo: false,
+  localOther: false,
+  localPart: false,
+  nonProfit: false,
+  otherCompany: "", overseasComp: false,
+  soleProp: false,
+  yearEnd: "", yearStart: ""},
+
+  oldEAS : {ConsolidatedLinkID: "0",  D1000: "0.00",  D1000f: "0.00",  D1001: "0.00",  D1112: "0.00",  D2142: "0.00",  D2910: "0.00",  D2910f: "0.00",  D2990: "0.00",  D2990f: "0.00", D4000: "0.00",  D4001: "0.00",  D4001f: "0.00",  D4002: "0.00",  D4003: "0.00",  D4009: "0.00",  D4009f: "0.00",  D4110: "0.00",  D4110f: "0.00",  D4111: "0.00",  D4112: "0.00", D4190: "0.00",  D4190f: "0.00",  D4211: "0.00",  D4590: "0.00",  D6101: "0.00",  D6220: "0.00",  D7101: "0.00",  D7200: "0.00",  D7511: "0.00",  D7519: "0.00",  D7520: "0.00", D7520f: "0.00",  F6101: "0.00",  F6109: "0.00",  F6201: "0.00",  F6202: "0.00",  F6203: "0.00",  GratuitiesPaid: "0.00",  K1000: "0.00",  K1000f: "0.00",  NumberEmployees: "0.00", OccupancyTaxPaid: "0.00",  P1111: "0.00",  P1111f: "0.00",  P1111g: "0.00",  P1111h: "0.00",  P1111m: "0.00",  P1112: "0.00",  P1112f: "0.00",  P1112g: "0.00",  P1113: "0.00", P1113f: "0.00",  P1113g: "0.00",  P1114: "0.00",  P1114f: "0.00",  P1114g: "0.00",  P1115: "0.00",  P1115f: "0.00",  P1121: "0.00",  P1129: "0.00",  P1182: "0.00",  P1189: "0.00", P1189f: "0.00",  P1610: "0.00",  P1610f: "0.00",  P1620: "0.00",  P1630: "0.00",  P2111: "0.00",  P2112: "0.00",  P2120: "0.00",  P2130: "0.00",  P2140: "0.00",  P2151: "0.00", P2152: "0.00", P2153: "0.00", P2154: "0.00", P2155: "0.00", P2155f: "0.00", P2160: "0.00", P2160f: "0.00", P2170: "0.00", P2170f: "0.00", P2180: "0.00", P2180f: "0.00", P2190: "0.00", P2211: "0.00", P2212: "0.00", P2213: "0.00", P2214: "0.00", P2220: "0.00", P2220f: "0.00", P2230: "0.00", P2240: "0.00", P2240f: "0.00", P2300: "0.00", P2300f: "0.00", P2411: "0.00", P2412: "0.00", P2412f: "0.00", P2413: "0.00", P2420: "0.00", P2420f: "0.00", P2430: "0.00", P2430f: "0.00", P2510: "0.00", P2510f: "0.00", P2520: "0.00", P2520f: "0.00", P2610: "0.00", P2610f: "0.00", P2620: "0.00", P2630: "0.00", P2630f: "0.00", P2700: "0.00", P2700f: "0.00", P2810: "0.00", P2810f: "0.00", P2820: "0.00", P2820f: "0.00", P2830: "0.00", P2830f: "0.00", P2840: "0.00", P2840f: "0.00", P2900: "0.00", P2900f: "0.00", P5114: "0.00", P5114d: "0.00", P5114f: "0.00", P5114l: "0.00", P5114p: "0.00", P5116: "0.00", P5116d: "0.00", P5116f: "0.00", P5116l: "0.00", P5116p: "0.00", P5117: "0.00", P5117d: "0.00", P5117f: "0.00", P5117l: "0.00", P5117p: "0.00", P5118: "0.00", P5118d: "0.00", P5118f: "0.00", P5118l: "0.00", P5118p: "0.00", P5119: "0.00", P5119d: "0.00", P5119f: "0.00", P5119l: "0.00", P5119p: "0.00", P5120: "0.00", P5120d: "0.00", P5120f: "0.00", P5120l: "0.00", P5120p: "0.00", P5121: "0.00", P5121d: "0.00", P5121f: "0.00", P5121l: "0.00", P5121p: "0.00", P5122: "0.00", P5122d: "0.00", P5122f: "0.00", P5122l: "0.00", P5122p: "0.00", P5200A: "0.00", P5200AC: "0.00", P5200B: "0.00", P5200BC: "0.00", P5200C: "0.00", P5200CC: "0.00", P5200D: "0.00", P5200DC: "0.00", P5200E: "0.00", P5200EC: "0.00", P5211: "0.00", P5219: "0.00", P5221: "0.00", P5229: "0.00", P5231: "0.00", P5239: "0.00", P5300: "0.00", P5300d: "0.00", P5300f: "0.00", P5300l: "0.00", P5300p: "0.00", PercentageIncomeBusinessTourist: "0.00", PercentageIncomeLocals: "0.00", PercentageIncomeVacationTourists: "0.00", ReceiptsBitcoin: "0.00", RemittedAbroad: "0.00"}
 }

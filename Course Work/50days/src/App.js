@@ -10,12 +10,14 @@ import Day4 from './Days/Day4';
 import Day5 from './Days/Day5';
 import Day6 from './Days/Day6';
 import Day7 from './Days/Day7';
+import Day8 from './Days/Day8';
+import Day9 from './Days/Day9';
 
 function App() {
   const [Page, setPage] = useState();
   
   const [rotated, setRotated] = useState(0)
-  let comps = {Day1, Day2, Day4, Day5, Day6, Day7}
+  let comps = {Day1, Day2, Day4, Day5, Day6, Day7, Day8, Day9}
 
   const style = {backgroundColor:"black", 
 backgroundImage:`url(${smiley})`, 
@@ -51,6 +53,8 @@ backgroundRepeat:"no-repeat"}
       <Button variant="outline-success" onClick={handleClick} id={5}> Day 5</Button>
       <Button variant="outline-success" onClick={handleClick} id={6}> Day 6</Button>
       <Button variant="outline-success" onClick={handleClick} id={7}> Day 7</Button>
+      <Button variant="outline-success" onClick={handleClick} id={8}> Day 8</Button>
+      <Button variant="outline-success" onClick={handleClick} id={9}> Day 9</Button>
       </Alert>
     <Container>
     

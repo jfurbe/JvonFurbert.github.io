@@ -9,6 +9,8 @@ import formSel from './formSelection.js';
 import SectionI from './SectionIComponent.js';
 import SectionII from './SectionIIComponent.js';
 import SectionIII from './SectionIIIComponent.js';
+import SectionA from './SectionA';
+import SectionB from './SectionB';
 import SectionIV from './SectionIVComponent.js';
 import SectionV from './SectionVComponent.js';
 import { UserContext } from "../Util/UserProvider"
@@ -24,8 +26,22 @@ function getSection(output, form, sec){                         //Get Form heade
   return arr2
 }
 
-var formReference = {                                       //Find Form field info from 'formfields'
-  "11to14": FORMS[5]
+var formReference = {                                      //Find Form field info from 'formfields'
+  "11": FORMS[0],
+  "13": FORMS[1],
+  "5" : FORMS[2],
+  "3" : FORMS[3],
+  "4" : FORMS[4],
+  "6" : FORMS[6],
+  "8" : FORMS[7],
+  "71" : FORMS[8],
+  "72" : FORMS[9],
+  "91" : FORMS[11],
+  "92" : FORMS[12],
+  "10" : FORMS[13],
+  "11to14": FORMS[5],
+  "113" : FORMS[14],
+  "15":FORMS[15]
 }
 
 function Records({business}){
@@ -33,27 +49,22 @@ function Records({business}){
   const [sec, setSec] = useState('')
   var output = Object.entries(formReference[business.IsicForm]).map(([key, value,amt = '']) => ({key,value, amt}));
   let form = formSel.filter((x)=> x.Form == business.IsicForm)[0];
-  console.log(business)
+  console.log(form)
 
-  let section2 = getSection(output, form, 'SectionII')
-  let section3 = getSection(output, form, 'SectionIII')
+  //let section2 = getSection(output, form, 'SectionII')
+  //let section3 = getSection(output, form, 'SectionIII')
 
-  const setSec1 = ()=> setSec(<SectionI business={business}/>)
-  const setSec2 = ()=> setSec(<SectionII currentEAS={state.currentEAS} oldEAS={state.oldEAS} form={form} formRef={formReference}/>)
-  
-  const setSec3 = ()=> {
-    setSec(<SectionIII currentEAS={state.currentEAS} oldEAS={state.oldEAS}/>)
-  }
-  const setSec4 = ()=> {
-    setSec(<SectionIV currentEAS={state.currentEAS} oldEAS={state.oldEAS}/>)
-  }
-  const setSec5 = ()=> {
-    setSec(<SectionV currentEAS={state.currentEAS} oldEAS={state.oldEAS}/>)
-  }
-  const setSec6 = () =>{
-    setSec(<Ict storeIct = {state.storeIct} currentICT={ state.currentICT} ictData={state.ictData} oldICT={state.oldICT}/>)
 
-  }
+  const setSec1 = ()=> setSec(<SectionI business={business} section1={state.section1}/>)
+  const setSec2 = ()=> ['91','92'].includes(form.Form) ?
+      setSec(<SectionA currentEAS={state.currentEAS} oldEAS={state.oldEAS} form={form} formRef={formReference[business.IsicForm]}/>) :
+      setSec(<SectionII currentEAS={state.currentEAS} oldEAS={state.oldEAS} form={form} formRef={formReference[business.IsicForm]}/>) ;
+  const setSec3 = ()=> ['91','92'].includes(form.Form) ?
+      setSec(<SectionB currentEAS={state.currentEAS} oldEAS={state.oldEAS} form={form} formRef={formReference[business.IsicForm]}/>) :
+      setSec(<SectionIII currentEAS={state.currentEAS} oldEAS={state.oldEAS} form={form} formRef={formReference[business.IsicForm]}/>) ;
+  const setSec4 = ()=> setSec(<SectionIV currentEAS={state.currentEAS} oldEAS={state.oldEAS} formType={form.Form}/>)
+  const setSec5 = ()=> setSec(<SectionV currentEAS={state.currentEAS} oldEAS={state.oldEAS}/>)
+  const setSec6 = () => setSec(<Ict currentICT={ state.currentICT} ictData={state.ictData} oldICT={state.oldICT}/>)
 
 
 
