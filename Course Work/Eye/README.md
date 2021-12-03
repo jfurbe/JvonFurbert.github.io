@@ -3,7 +3,7 @@
 Here we are attempting to create eyes on the screen and then move them where the mouse moves. I have added a smile that smiles or frowns depending on the mouse placement. 
 
 ## How to run 
-Add pacman and then click the start button. Add more pacmen as desired.
+Open and move the mouse.
 
 
 ### Roadmap of furture improvements
