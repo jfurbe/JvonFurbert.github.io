@@ -23,6 +23,7 @@
         <hr>
         <button class="btn-dark" onclick="handleClick(event)">Eyes Project</button>
         <button class="btn-dark" onclick="handleClick(event)">PacMan Project</button>
+        <button class="btn-dark" onclick="handleClick(event)">Bus Tracker Project</button>
         <div id="display"> </div>
       <script> const handleClick = (e)=> {
          console.log(e.target.innerText)
@@ -38,6 +39,13 @@
             document.getElementById("display").innerHTML = 
          ('<div style="border:1px solid black; "> \
          <object type="text/html" data="./Course Work/PacMan/index.html" width="800px" height="600px" > \
+         </object> \
+        </div>')
+        break;
+        case "Bus Tracker Project" :
+            document.getElementById("display").innerHTML = 
+         ('<div style="border:1px solid black; "> \
+         <object type="text/html" data="./Course Work/BusTracker/index.html" width="800px" height="600px" > \
          </object> \
         </div>')
         break;
