@@ -15,15 +15,41 @@
 <div >
   <img id="bgImage" src="./public/Madara.png">
 
-    <div id="main" class="m-5 p-5 container alert alert-light" role="alert">
-        <h4 class="alert-heading">Projects</h4>
+    <div class="m-5 p-5 container alert alert-dark" role="alert">
+    
+      <h4 class="alert-heading">Projects</h4>
         <p>Here you can find a few projects I have been working on.</p>
         <div id="nav"><script type="text/javascript"> document.getElementById("nav").innerHTML = nav(window.location.href)</script></div>
         <hr>
-       
+        <button class="btn-dark" onclick="handleClick(event)">Eyes Project</button>
+        <button class="btn-dark" onclick="handleClick(event)">PacMan Project</button>
+        <div id="display"> </div>
+      <script> const handleClick = (e)=> {
+         console.log(e.target.innerText)
+         switch (e.target.innerText) {
+            case "Eyes Project":
+            document.getElementById("display").innerHTML =
+         ('<div style="border:1px solid black; "> \
+         <object type="text/html" data="./Course Work/Eye/index.html" width="800px" height="600px" > \
+         </object> \
+        </div>')
+        break;
+            case "PacMan Project" :
+            document.getElementById("display").innerHTML = 
+         ('<div style="border:1px solid black; "> \
+         <object type="text/html" data="./Course Work/PacMan/index.html" width="800px" height="600px" > \
+         </object> \
+        </div>')
+        break;
+         }
+      }
+      </script>
+        
+            
+ 
         <div id="footer"><script type="text/javascript">document.getElementById("footer").innerHTML = footer</script></div>
     </div>
-
+   
 </div>  
 <script src="index.js"></script>
   

@@ -1,0 +1,58 @@
+#eyes {
+   
+   position: absolute;
+   top: 20vh;
+   left: 5vw;
+   transform: translateY(-50%);
+   width: 80vw;
+   text-align: center;
+ }
+
+ .eye {
+   width: 20vw;
+   height: 10vh;
+   background: black;
+   display: inline-block;
+   margin: 40px;
+   border-radius: 50%;
+   position: relative;
+   overflow: hidden;
+ }
+
+ .ball {
+   width: 10vh;
+   height: 10vh;
+   background:green;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%; -50%);
+   border-radius: 50%;
+ }
+
+#alpha {
+
+   height: 40vh;
+   width: 40vh;
+   border-bottom: 6px solid #bbb;
+   border-radius: 50%;
+   display: inline-block;
+   position: absolute;
+   left: 40vh;
+   top: 10vh;
+   visibility: visible
+
+}
+
+#beta {
+
+height: 40vh;
+width: 40vh;
+border-top: 6px solid #bbb;
+border-radius: 0%;
+display: inline-block;
+position: absolute;
+left: 40vh;
+top: 50vh;
+visibility: hidden
+}
