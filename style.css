@@ -22,3 +22,11 @@
 body {
    background-color: #2b2d2f;
 }
+
+.roth {
+   transform: rotate(0deg) ;
+   transform-origin: top left;
+   transition;
+   transition-property: transform; 
+   transition-duration: 1s;
+}

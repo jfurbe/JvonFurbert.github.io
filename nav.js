@@ -1,4 +1,11 @@
-
+var slide = ()=> {
+ let sty = document.getElementsByClassName("roth")[0].style
+ sty.transform = 'rotate(45deg)'
+ console.log(sty)
+ setTimeout(()=> window.addEventListener("click", trans = ()=> {sty.transform = 'rotate(0deg)'
+ window.removeEventListener("click", trans) })
+ ,1000);
+}
 
 var nav = (input)=>{
 
@@ -23,7 +30,7 @@ var nav = (input)=>{
      <a class="nav-link ${links[1]} href="./projects.html">Project Page</a> \
    </li> \
    <li class="nav-item"> \
-     <a class="nav-link ${links[2]} href="./misc.html">Misc</a> \
+     <a class="nav-link btn ${links[2]} onClick="slide()" >Misc</a> \
    </li> \
    <li class="nav-item"> \
      <a class="nav-link disabled">Disabled</a> \

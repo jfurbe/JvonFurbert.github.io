@@ -15,15 +15,22 @@
 <div >
   <img id="bgImage" src="./public/Madara.png">
 
-    <div class="m-5 p-5 container alert alert-dark" role="alert">
+    <div class="m-5 p-5 container alert alert-dark roth" role="alert">
     
       <h4 class="alert-heading">Projects</h4>
         <p>Here you can find a few projects I have been working on.</p>
         <div id="nav"><script type="text/javascript"> document.getElementById("nav").innerHTML = nav(window.location.href)</script></div>
         <hr>
+        <div>
+         <a href="https://github.com/jfurbe/pholio/tree/other/Course%20Work/Eye" class="link-dark">Eye Repo</a>
+         <a href="https://github.com/jfurbe/pholio/tree/other/Course%20Work/PacMan" class="link-dark">Pacman Repo</a>
+         <a href="https://github.com/jfurbe/pholio/tree/other/Course%20Work/BusTracker" class="link-dark">Bus Repo</a>
+       </div>
+       <p></p>
         <button class="btn-dark" onclick="handleClick(event)">Eyes Project</button>
         <button class="btn-dark" onclick="handleClick(event)">PacMan Project</button>
         <button class="btn-dark" onclick="handleClick(event)">Bus Tracker Project</button>
+        
         <div id="display"> </div>
       <script> const handleClick = (e)=> {
          console.log(e.target.innerText)
