@@ -1,9 +1,9 @@
 import React from 'react';
 import {Col, Row, Stack} from 'react-bootstrap';
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 const SectionIForm = ({section1, business})=> {
-   const { control, register, handleSubmit, getValues } = useForm({defaultValues:section1});  //formState: { errors }
+   const { control, register} = useForm({defaultValues:section1});  //formState: { errors }
    const OnChange = ''
 
    const companies = ['a) Sole propretorship', 'b) Local Partnership', 'c) Limited Company/ Incorporated', 'd) Other']
@@ -15,11 +15,11 @@ const SectionIForm = ({section1, business})=> {
      //Make sure only one checkbox is checked. 
       let target = data.target.name
       if (document.getElementById(target))
-      {if (document.getElementById(target).type == 'checkbox'){
-         companyRef.filter((x) => x!= target).map((x)=> {
+      {if (document.getElementById(target).type === 'checkbox'){
+         companyRef.filter((x) => x !== target).map((x)=> {
                                           document.getElementById(x).checked = false
                                           section1[x] = false});
-         companyRef2.filter((x) => x!= target).map((x)=> {
+         companyRef2.filter((x) => x !== target).map((x)=> {
                                              document.getElementById(x).checked = false
                                              section1[x] = false});
          section1[target] = true;
@@ -43,7 +43,7 @@ const SectionIForm = ({section1, business})=> {
             </Col>
             <Col md={8}>
             <label htmlFor={companyRef.i} > {x}</label> 
-            {i==3 && <input placeholder="% of foreign ownership" {...register("foreignOwned")}/>}
+            {i === 3 && <input placeholder="% of foreign ownership" {...register("foreignOwned")}/>}
             </Col>
             </Row>
           ))}         
@@ -59,7 +59,7 @@ const SectionIForm = ({section1, business})=> {
             </Col>
             <Col md={10}>
             <label htmlFor={companyRef2.i} > {x}</label>
-            {i==4 && <input placeholder="Please specify" {...register("otherCompany")} onChange={handleChange}/>}
+            {i === 4 && <input placeholder="Please specify" {...register("otherCompany")} onChange={handleChange}/>}
             </Col>
             </Row>
           ))}         

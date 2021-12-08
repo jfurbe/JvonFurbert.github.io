@@ -80,7 +80,7 @@ const data = React.useMemo(
 
  const columns = React.useMemo(
   () => cols,
-  []
+  [cols]
 )
 
 return(

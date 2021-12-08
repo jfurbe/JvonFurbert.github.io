@@ -63,6 +63,9 @@ function Records({business, saveRecord}){
     Object.keys(state.currentICT).forEach((key2)=>{
       output[key2] = state.currentICT[key2]
     })
+    Object.keys(state.section1).forEach((key2)=>{
+      output[key2] = state.section1[key2]
+    })
     output['ReferenceNumber'] = state.businesses[0].ReferenceNumber
     //output['_id'] = state.businesses[0].ReferenceNumber
     saveRecord(output)

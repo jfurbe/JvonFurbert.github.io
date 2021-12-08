@@ -76,6 +76,7 @@ function Tablee({columns, data, updateMyData, skipPageReset}){
   React.useEffect(()=>  {
     setPageSize(Number(30))
   },[pageSize])
+  
   return(
     <>
     
@@ -196,11 +197,11 @@ const cols = createCols(dataIn[0], nonEdit);
 //  console.log(storeEas)
  const columns = React.useMemo(
   () => cols,
-  []
+  [cols]
 )
 
   const [data, setData] = React.useState(() => dataIn)
-  const [originalData] = React.useState(data)
+  //const [originalData] = React.useState(data)
   const [skipPageReset, setSkipPageReset] = React.useState(false)
 
   // We need to keep the table from resetting the pageIndex when we
@@ -239,7 +240,7 @@ React.useEffect(() => {
 
 // Let's add a data resetter/randomizer to help
 // illustrate that flow...
-const resetData = () => setData(originalData)
+//const resetData = () => setData(originalData)
 
 return(
   <div>

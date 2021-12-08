@@ -1,5 +1,5 @@
 import React from 'react';
-import {useTable, instance, usePagination} from 'react-table';
+import {useTable, usePagination} from 'react-table';
 import {Table} from 'react-bootstrap';
 import ReactHtmlParser from "react-html-parser";
 
@@ -189,14 +189,12 @@ function createCols(cols, nonEdit){
 
 function Tables({dataIn, nonEdit, currentEAS}){
 const cols = createCols(dataIn[0], nonEdit);
-console.log(currentEAS)
  const columns = React.useMemo(
   () => cols,
-  []
+  [cols]
 )
 
   const [data, setData] = React.useState(() => dataIn)
-  const [originalData] = React.useState(data)
   const [skipPageReset, setSkipPageReset] = React.useState(false)
 
   // We need to keep the table from resetting the pageIndex when we
@@ -216,7 +214,7 @@ console.log(currentEAS)
           currentEAS.dic3[data[index].item] = value
         }
         else{
-          if (columnId=='Dec2019'){
+          if (columnId==='Dec2019'){
             currentEAS.dic4[data[index].item][0] = value
           }
           else{

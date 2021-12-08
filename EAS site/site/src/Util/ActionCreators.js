@@ -226,3 +226,36 @@ export const saveRecord = (record) => {
        })
    };
 
+   export const getRecord = (record, dispatch) => {
+    // let pack = [comment._id, newComment]
+    
+      return fetch(baseUrl+"eascurrent/"+record, {
+        method: "GET",
+        headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "same-origin"
+  })
+  .then(response => {
+      
+      if (response.ok) {
+        return response;
+      } else {
+        var error = new Error('Error ' + response.status + ': ' + response.statusText);
+        error.response = response;
+        throw error;
+      }
+    },
+    error => {
+          throw error;
+    })
+  .then(response => response.json())
+  .then(response => dispatch(getData(response)))
+  .catch(error =>  { console.log('post comments', error.message); alert('Your data is missing\nError: '+error.message); });
+};
+
+export const getData = (response) => (
+  {
+    type: ActionTypes.GET_USERDATA,
+    payload: response
+});

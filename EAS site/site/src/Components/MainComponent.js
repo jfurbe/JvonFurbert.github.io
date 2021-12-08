@@ -8,7 +8,7 @@ import ReferenceGuide from './ReferenceGuide';
 import Header from './HeaderComponent';
 //import Footer from './FooterComponent';
 import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
-import { getSearch, responseSearch, getOldIct, emailSearch, getOldEas, adminData} from '../Util/ActionCreators';
+import { getSearch, responseSearch, getOldIct, emailSearch, getOldEas, adminData, getRecord, getData} from '../Util/ActionCreators';
 import { UserContext } from "../Util/UserProvider"
 
 const Main = (props)=> {
@@ -16,9 +16,17 @@ const Main = (props)=> {
     const [showLogin, setShowLogin] = useState(true);
     const [showSearch, setShowSearch] = useState(false);
 
-    
+    useEffect(()=>{ //Check if user is already logged in
+        let checkUserType = require('../Util/CheckUserType').default;
+        const user = localStorage.getItem("user");
+        if (user) {
+            dispatch({type: 'SET_USER', payload: user})
+            dispatch({type: 'SET_USERTYPE', payload: checkUserType(user)})
+            console.log(state.businesses)
+    }
+    }, [])
+
     useEffect( ()=> {   //Set user type after login
-        console.log(state.userType)
         switch (state.userType){
             case 'User':
             setShowLogin(false)
@@ -33,6 +41,7 @@ const Main = (props)=> {
     useEffect( ()=> { //Load user data after login
         console.log(state.businesses)
        if (state.businesses) {
+        getRecord(state.businesses[0].ReferenceNumber, dispatch)
         getOldIct(state.businesses[0].ReferenceNumber, dispatch)
         getOldEas(state.businesses[0].ReferenceNumber, dispatch)
        }

@@ -100,7 +100,7 @@ function Tablee({columns, data, updateMyData, exportMyData, skipPageReset}){
                        <td
                          {...cell.getCellProps()}>
                          {/*cell.render('Cell')*/}
-                         {(cell.column.Header == 'value') ? ReactHtmlParser(cell.value) : cell.render('Cell')}
+                         {(cell.column.Header === 'value') ? ReactHtmlParser(cell.value) : cell.render('Cell')}
                          {/*ReactHtmlParser(cell.value)*/}
                          {/*console.log(cell)*/}
                        </td>
@@ -194,7 +194,7 @@ const cols = createCols(dataIn[0], nonEdit);
 
  const columns = React.useMemo(
   () => cols,
-  []
+  [cols]
 )
 
   const [data, setData] = React.useState(() => dataIn)
@@ -249,7 +249,7 @@ React.useEffect(() => {
 
 // Let's add a data resetter/randomizer to help
 // illustrate that flow...
-const resetData = () => setData(originalData)
+//const resetData = () => setData(originalData)
 
 return(
   <div>

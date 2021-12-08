@@ -50,7 +50,7 @@ function getSection(output, i, sec, data, mid, oldD){
 }
 
 const SectionV = (props) => {
-  const { control, register, handleSubmit, } = useForm();  //formState: { errors }
+  //const { control, register, handleSubmit, } = useForm();  //formState: { errors }
 
 console.log(props)
   var output = Object.entries(FORMS[0]).map(([item, PAYMENTS,Amt = '']) => ({item,PAYMENTS, Amt}));

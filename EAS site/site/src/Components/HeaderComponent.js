@@ -37,8 +37,18 @@ const Header = (props)=> {
   const LoginButton = ()=> {
     return (
       <Nav.Item>
-         <Button outline onClick={toggleModal}>
+         <Button onClick={toggleModal}>
             <span className="fa fa-sign-in fa-lg">Login</span>
+         </Button>
+      </Nav.Item>
+    )
+  }
+
+  const LogOutButton = ()=> {
+    return (
+      <Nav.Item>
+         <Button onClick={handleLogOut}>
+            <span className="fa fa-sign-in fa-lg">LogOut</span>
          </Button>
       </Nav.Item>
     )
@@ -70,11 +80,13 @@ const handleSearch = (searchItem)=> {
 const handleLogin = (userName, password)=> { 
   signInWithEmailAndPassword(auth, userName, password)
   .then((userCredential) => {
-   console.log( auth, userName) 
    // Signed in 
     const user = userCredential.user.email;
     dispatch({type: 'SET_USER', payload: user})
     dispatch({type: 'SET_USERTYPE', payload: CheckUserType(user)})
+    
+    localStorage.setItem('user', userCredential.user.email)
+    console.log(localStorage)
     // ...
   })
   .catch((error) => {
@@ -86,6 +98,11 @@ const handleLogin = (userName, password)=> {
   toggleModal();
 }
 
+const handleLogOut = ()=> {
+  localStorage.clear();
+  window.location.reload();
+}
+
     return (
       <>
       <Navbar bg='dark' variant="dark" expand="md">
@@ -94,8 +111,8 @@ const handleLogin = (userName, password)=> {
           <img src="./assets/images/bermuda.png" alt="logo" height="40" width="21"/>
           </Navbar.Brand>
           <Navbar.Toggle onClick={toggleNav}/>
-          <Navbar.Collapse isOpen={isNavOpen} navbar>
-            <Nav navbar >
+          <Navbar.Collapse>
+            <Nav >
               <Nav.Item>
                 <NavLink className="nav-link" to="/home">
                   <span className="fa fa-home fa-lg"></span> Home
@@ -115,7 +132,7 @@ const handleLogin = (userName, password)=> {
             </Nav>
           </Navbar.Collapse>
           <Nav className="justify-content-end">
-            {props.showLogin && <LoginButton/>}
+            {props.showLogin ? <LoginButton/> : <LogOutButton/>}
             {props.showSearch && <SearchButton/>}
             </Nav>
         </Container>

@@ -53,6 +53,20 @@ export const reducer = (state = {
 
       case ActionTypes.POST_ICT:
           return {...state, isLoading: false, errMess: null, responseSearch: action.payload};
+      
+      case ActionTypes.GET_USERDATA:
+          Object.keys(state.currentEAS).map((key)=>{
+            Object.keys(state.currentEAS[key]).map((key2)=> {
+              state.currentEAS[key][key2] = action.payload[0][key2]
+            })
+          })
+          Object.keys(state.currentICT).map((key)=>{
+              state.currentICT[key] = action.payload[0][key]
+          })
+          Object.keys(state.section1).map((key)=>{
+            state.section1[key] = action.payload[0][key]
+        })
+          return {...state};
 
       default:
           return state;

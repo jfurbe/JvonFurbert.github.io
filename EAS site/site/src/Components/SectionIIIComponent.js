@@ -1,9 +1,8 @@
 import React,{useState} from 'react';
-import {Row, Col, } from 'react-bootstrap';
-import { useForm, Controller } from "react-hook-form";
+import { useForm} from "react-hook-form";
 import Tables from './tableSectionII';
-import FORMS from './formfields.js';
-import formSel from './formSelection.js';
+//import FORMS from './formfields.js';
+//import formSel from './formSelection.js';
 
 function getSection(output, form, sec, data, oldD){
   let arr2 = [];
@@ -30,9 +29,9 @@ function getSection(output, form, sec, data, oldD){
 const SectionIII = ({form, formRef, currentEAS, oldEAS}) => {
   console.log(form)
   console.log(formRef)
-  const { control, register, handleSubmit, } = useForm();  //formState: { errors }
+  //const { control, register, handleSubmit, } = useForm();  //formState: { errors }
 
-  const [sec, setSec] = useState('')
+  //const [sec, setSec] = useState('')
   var output = Object.entries(formRef).map(([item, description,amt = '', prevAmt='']) => ({item, description, amt, prevAmt}));
 
 

@@ -19,3 +19,6 @@ export const GET_ICT = 'GET_ICT';
 export const POST_ICT = 'POST_ICT';
 
 export const ADATA_SEARCH = 'ADATA_SEARCH';
+
+export const SAVE_DATA = 'SAVE_DATA';
+export const GET_USERDATA = 'GET_USERDATA';

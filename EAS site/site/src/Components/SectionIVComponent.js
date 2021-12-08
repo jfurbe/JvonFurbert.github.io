@@ -5,7 +5,7 @@ import Tables from './tableSectionIV';
 
 
 const SectionIV = ({currentEAS, formType}) => {
-  const { control, register, handleSubmit, } = useForm();  //formState: { errors }
+  const { control, register, } = useForm();  //formState: { errors }
   let section4a = '';
 
   const deprVars = [

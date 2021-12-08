@@ -55,19 +55,23 @@ function Home(){
           {business && hasStarted()}
                               
           </Card>
-          <p></p>
+          
           <Card border="dark" style={{ }}>
             <Card.Header>
             <Card.Title style={{textAlign:"center"}}>ANNUAL ECONOMIC ACTIVITY SURVEY, {new Date().getFullYear()}</Card.Title>
             </Card.Header>
             <Card.Body>
               <h3>{form.FormTitle}</h3>
-              <Card.Text>
+              <Card.Text as='div'>
               {ReactHtmlParser(form.FormInfo)}
-                <p></p>
-                <p>The purpose of the survey is to obtain information for the compilation of estimates of Gross Domestic Product.  Respondents are selected using statistical techniques that ensure optimal coverage of industries within Bermuda's economy. As you have been selected, the survey is <strong className="text-danger">MANDATORY</strong> and <strong>COMPLETION OF THIS QUESTIONNAIRE IS A LEGAL REQUIREMENT UNDER Section 11 of the Statistics Act 2002.</strong> All information taken from this questionnaire will be kept strictly <strong className="text-info">CONFIDENTIAL</strong>, used for statistical purposes only, and published only in aggregate form.</p>
-                <p></p>
-                <p> If you encounter problems completing this questionnaire or find it difficult to meet the due date, please <Link to="/contactUs">contact us.</Link></p>
+                
+                <div className="py-4">
+                The purpose of the survey is to obtain information for the compilation of estimates of Gross Domestic Product.  Respondents are selected using statistical techniques that ensure optimal coverage of industries within Bermuda's economy. As you have been selected, the survey is <strong className="text-danger">MANDATORY</strong> and <strong>COMPLETION OF THIS QUESTIONNAIRE IS A LEGAL REQUIREMENT UNDER Section 11 of the Statistics Act 2002.</strong> All information taken from this questionnaire will be kept strictly <strong className="text-info">CONFIDENTIAL</strong>, used for statistical purposes only, and published only in aggregate form.
+                </div>
+                
+                <div>
+                If you encounter problems completing this questionnaire or find it difficult to meet the due date, please <Link to="/contactUs">contact us.</Link>
+                </div>
               </Card.Text>
             </Card.Body>
           </Card>
