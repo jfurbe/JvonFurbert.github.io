@@ -17,3 +17,5 @@ export const STORE_ICT = 'STORE_ICT';
 export const STORE_OLDICT = 'STORE_OLDICT';
 export const GET_ICT = 'GET_ICT';
 export const POST_ICT = 'POST_ICT';
+
+export const ADATA_SEARCH = 'ADATA_SEARCH';

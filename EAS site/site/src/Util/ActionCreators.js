@@ -141,6 +141,38 @@ export const hitSearch = (searchItem) => ({
     payload: searchItem
 });
 
+export const adminData = (dispatch) => {
+
+  return fetch(baseUrl + 'adminData/', {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "same-origin"
+  })
+  .then(response => {
+      
+      if (response.ok) {
+        return response;
+      } else {
+        var error = new Error('Error ' + response.status + ': ' + response.statusText);
+        error.response = response;
+        throw error;
+      }
+    },
+    error => {
+          throw error;
+    })
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(error =>  { console.log('post comments', error.message); alert('Your comment could not be posted\nError: '+error.message); });
+};
+
+export const adminDataFind = (reponse) => ({
+    type: ActionTypes.ADATA_SEARCH,
+    payload: reponse
+});
+
 export const hitResponseSearch = (searchItem) => ({
     type: ActionTypes.RESPONSE_SEARCH,
     payload: searchItem
@@ -171,4 +203,26 @@ export const storeEAS = (eas) => (
     type: ActionTypes.STORE_EAS,
     payload: eas
 });
+
+export const saveRecord = (record) => {
+  // let pack = [comment._id, newComment]
+  
+    return fetch(baseUrl+"eascurrent/"+record.ReferenceNumber, {
+      method: "POST",
+      body: JSON.stringify(record),
+      headers: {
+        "Content-Type": "application/json"
+    }
+     })
+     .then(response => {
+         if (response.ok) {
+           return response;
+         } else {
+           console.log(response)
+         }
+       },
+       error => {
+             throw error;
+       })
+   };
 

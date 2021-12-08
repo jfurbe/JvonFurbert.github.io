@@ -8,6 +8,8 @@ import {Button} from 'react-bootstrap';
 //import { Loading } from './LoadingComponent';
 //import { baseUrl } from '../shared/baseUrl';
 import ReactHtmlParser from "react-html-parser";
+import { saveRecord} from '../Util/ActionCreators';
+
 
 function Home(){
   const [ state, dispatch ] = React.useContext(UserContext)
@@ -22,12 +24,12 @@ function Home(){
   }, [ business])
 
   const hasStarted = ()=> (
-
-      showRecords ? <Button onClick={()=>setShowRecords(false)}>START SURVEY</Button> : <Records business={business}/>
+     //Records Component start after button clicked
+      showRecords ? <Button onClick={()=>setShowRecords(false)}>START SURVEY</Button> : <Records business={business} saveRecord={saveRecord}/>
 
   )
-  console.log(formSel)
-  switch(state.userType){
+  
+  switch(state.userType){  //Switch for stats admin display or regular user
     case 'Admin' :
       return(
         <div className="container">
@@ -75,7 +77,7 @@ function Home(){
       )
 
     break;
-    default:
+    default: //Default Display
       return(
         <div className="container">
           

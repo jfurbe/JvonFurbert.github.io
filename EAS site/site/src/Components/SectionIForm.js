@@ -12,8 +12,10 @@ const SectionIForm = ({section1, business})=> {
   const companyRef2 = ['govEnt', 'overseasComp', 'exempt', 'nonProfit', 'foreignOther' ]
 
    const handleChange = (data)=> {
+     //Make sure only one checkbox is checked. 
       let target = data.target.name
-      if (document.getElementById(target).type == 'checkbox'){
+      if (document.getElementById(target))
+      {if (document.getElementById(target).type == 'checkbox'){
          companyRef.filter((x) => x!= target).map((x)=> {
                                           document.getElementById(x).checked = false
                                           section1[x] = false});
@@ -21,10 +23,9 @@ const SectionIForm = ({section1, business})=> {
                                              document.getElementById(x).checked = false
                                              section1[x] = false});
          section1[target] = true;
-      }
+      }}
       section1[target] = data.target.value;
-      console.log(getValues());
-      console.log(section1);
+      console.log(section1)
    }
 
    return (
@@ -42,7 +43,7 @@ const SectionIForm = ({section1, business})=> {
             </Col>
             <Col md={8}>
             <label htmlFor={companyRef.i} > {x}</label> 
-            {i==3&&<input placeholder="% of foreign ownership" {...register("foreignOwned")}/>}
+            {i==3 && <input placeholder="% of foreign ownership" {...register("foreignOwned")}/>}
             </Col>
             </Row>
           ))}         

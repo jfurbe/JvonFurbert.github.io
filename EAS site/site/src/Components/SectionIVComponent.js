@@ -18,9 +18,17 @@ const SectionIV = ({currentEAS, formType}) => {
     {"ITEM":"P5121","STOCK OF CAPITAL":"Other intellectual property products", "NET Opening Balance":currentEAS.dic2.P5121,"PLUS Acquisitions":currentEAS.dic2.P5121p,"LESS Disposals":currentEAS.dic2.P5121l,"Depreciation":currentEAS.dic2.P5121d,"NET Closing Balance":currentEAS.dic2.P5121f},
     {"ITEM":"P5122","STOCK OF CAPITAL":"Non-Produced assets", "NET Opening Balance":currentEAS.dic2.P5122,"PLUS Acquisitions":currentEAS.dic2.P5122p,"LESS Disposals":currentEAS.dic2.P5122l,"Depreciation":currentEAS.dic2.P5122d,"NET Closing Balance":currentEAS.dic2.P5122f},
     {"ITEM":"P5300","STOCK OF CAPITAL":"Valuables", "NET Opening Balance":currentEAS.dic2.P5300,"PLUS Acquisitions":currentEAS.dic2.P5300p,"LESS Disposals":currentEAS.dic2.P5300l,"Depreciation":currentEAS.dic2.P5300d,"NET Closing Balance":currentEAS.dic2.P5300f}
-
   ]
-  switch(formType){
+
+  const handleChange = (e)=> {
+    let target = e.target
+    let name = e.target.name
+    
+    currentEAS.dic5[name] = target.value
+    
+  }
+
+  switch(formType){ // Switch different questions for different form types, Constrution, Retail etc. 
     case "5":
       section4a = (
         <Row className="mb-3 form-group">
@@ -33,8 +41,8 @@ const SectionIV = ({currentEAS, formType}) => {
             render={({ field : {onChange, onBlur} }) => <input
             placeholder=""
             {...register("ConstructionActivity1")}
-            defaultValue={currentEAS.ConstructionActivity1}
-            onChange={onChange}
+            defaultValue={currentEAS.dic5.ConstructionActivity1}
+            onChange={handleChange}
             />}
             name="ConstructionActivity1"
             control={control}
@@ -44,8 +52,8 @@ const SectionIV = ({currentEAS, formType}) => {
             render={({ field : {onChange, onBlur} }) => <input
             placeholder=""
             {...register("ConstructionActivity2")}
-            defaultValue={currentEAS.ConstructionActivity2}
-            onChange={onChange}
+            defaultValue={currentEAS.dic5.ConstructionActivity2}
+            onChange={handleChange}
             />}
             name="ConstructionActivity2"
             control={control}
@@ -68,8 +76,8 @@ const SectionIV = ({currentEAS, formType}) => {
             render={({ field : {onChange, onBlur} }) => <input
             placeholder=""
             {...register('RetailingActivity1')}
-            defaultValue={currentEAS.RetailingActivity1}
-            onChange={onChange}
+            defaultValue={currentEAS.dic5.RetailingActivity1}
+            onChange={handleChange}
             />}
             name='RetailingActivity1'
             control={control}
@@ -78,8 +86,8 @@ const SectionIV = ({currentEAS, formType}) => {
             render={({ field : {onChange, onBlur} }) => <input
             placeholder=""
             {...register('RetailingActivity2')}
-            defaultValue={currentEAS.RetailingActivity2}
-            onChange={onChange}
+            defaultValue={currentEAS.dic5.RetailingActivity2}
+            onChange={handleChange}
             />}
             name='RetailingActivity2'
             control={control}
@@ -96,8 +104,8 @@ const SectionIV = ({currentEAS, formType}) => {
             render={({ field : {onChange, onBlur} }) => <input
             placeholder="%"
             {...register("PercentageIncomeBusinessTourist")}
-            defaultValue={currentEAS.PercentageIncomeBusinessTourist}
-            onChange={onChange}
+            defaultValue={currentEAS.dic5.PercentageIncomeBusinessTourist}
+            onChange={handleChange}
             />}
             name="PercentageIncomeBusinessTourist"
             control={control}
@@ -119,8 +127,8 @@ const SectionIV = ({currentEAS, formType}) => {
           render={({ field : {onChange, onBlur} }) => <input
           placeholder="%"
           {...register("PercentageIncomeBusinessTourist")}
-          defaultValue={currentEAS.PercentageIncomeBusinessTourist}
-          onChange={onChange}
+          defaultValue={currentEAS.dic5.PercentageIncomeBusinessTourist}
+          onChange={handleChange}
           />}
           name="PercentageIncomeBusinessTourist"
           control={control}
@@ -130,8 +138,8 @@ const SectionIV = ({currentEAS, formType}) => {
           render={({ field : {onChange, onBlur} }) => <input
           placeholder="%"
           {...register('PercentageIncomeVacationTourists')}
-          defaultValue={currentEAS.PercentageIncomeVacationTourists}
-          onChange={onChange}
+          defaultValue={currentEAS.dic5.PercentageIncomeVacationTourists}
+          onChange={handleChange}
           />}
           name='PercentageIncomeVacationTourists'
           control={control}
@@ -141,8 +149,8 @@ const SectionIV = ({currentEAS, formType}) => {
           render={({ field : {onChange, onBlur} }) => <input
           placeholder="%"
           {...register("PercentageIncomeLocals")}
-          defaultValue={currentEAS.PercentageIncomeLocals}
-          onChange={onChange}
+          defaultValue={currentEAS.dic5.PercentageIncomeLocals}
+          onChange={handleChange}
           />}
           name="PercentageIncomeLocals"
           control={control}
@@ -162,8 +170,8 @@ const SectionIV = ({currentEAS, formType}) => {
             render={({ field : {onChange, onBlur} }) => <input
             placeholder="$0.00"
             {...register("RemittedAbroad")}
-            defaultValue={currentEAS.RemittedAbroad}
-            onChange={onChange}
+            defaultValue={currentEAS.dic5.RemittedAbroad}
+            onChange={handleChange}
             />}
             name="RemittedAbroad"
             control={control}
@@ -185,8 +193,8 @@ const SectionIV = ({currentEAS, formType}) => {
             render={({ field : {onChange, onBlur} }) => <input
             placeholder="%"
             {...register("PercentageIncomeBusinessTourist")}
-            defaultValue={currentEAS.PercentageIncomeBusinessTourist}
-            onChange={onChange}
+            defaultValue={currentEAS.dic5.PercentageIncomeBusinessTourist}
+            onChange={handleChange}
             />}
             name="PercentageIncomeBusinessTourist"
             control={control}
@@ -205,6 +213,7 @@ const SectionIV = ({currentEAS, formType}) => {
     <h5>SECTION IV – ADDITIONAL INFORMATION</h5></div>
 
     <form>
+      
       {section4a}
 
     <Row className="mb-3 form-group">
@@ -214,9 +223,15 @@ const SectionIV = ({currentEAS, formType}) => {
 
       <Col  md={{offset:3, span:5}}>
         <Controller
-          render={({ field : {onChange, onBlur} }) => <input placeholder="%" {...register("Covid")} />}
+          render={({ field : {onChange, onBlur} }) => <input
+          placeholder="%"
+          {...register("Covid")}
+          defaultValue={currentEAS.dic5.Covid}
+          onChange={handleChange}
+          />}
           name="Covid"
           control={control}
+
 
         />
       </Col>
@@ -230,10 +245,15 @@ const SectionIV = ({currentEAS, formType}) => {
 
       <Col  md={{offset:3, span:5}}>
         <Controller
-          render={({ field : {onChange, onBlur} }) => <input placeholder="" {...register("NumberEmployees")} />}
-          name="NumberEmployees"
-          control={control}
-
+           render={({ field : {onChange, onBlur} }) => <input
+           placeholder="%"
+           {...register("NumberEmployees")}
+           defaultValue={currentEAS.dic5.Covid}
+           onChange={handleChange}
+           />}
+           name="NumberEmployees"
+           control={control}
+ 
         />
       </Col>
     </Row>

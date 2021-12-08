@@ -44,7 +44,7 @@ var formReference = {                                      //Find Form field inf
   "15":FORMS[15]
 }
 
-function Records({business}){
+function Records({business, saveRecord}){
   const [ state, dispatch ] = React.useContext(UserContext) //Global State
   const [sec, setSec] = useState('')
   var output = Object.entries(formReference[business.IsicForm]).map(([key, value,amt = '']) => ({key,value, amt}));
@@ -53,7 +53,20 @@ function Records({business}){
 
   //let section2 = getSection(output, form, 'SectionII')
   //let section3 = getSection(output, form, 'SectionIII')
-
+  const handleSave = ()=> {
+    let output = {}
+    Object.keys(state.currentEAS).forEach((key)=> {
+      Object.keys(state.currentEAS[key]).forEach((key2)=>{
+        output[key2] = state.currentEAS[key][key2]
+      })
+    })
+    Object.keys(state.currentICT).forEach((key2)=>{
+      output[key2] = state.currentICT[key2]
+    })
+    output['ReferenceNumber'] = state.businesses[0].ReferenceNumber
+    //output['_id'] = state.businesses[0].ReferenceNumber
+    saveRecord(output)
+  }
 
   const setSec1 = ()=> setSec(<SectionI business={business} section1={state.section1}/>)
   const setSec2 = ()=> ['91','92'].includes(form.Form) ?
@@ -64,8 +77,8 @@ function Records({business}){
       setSec(<SectionIII currentEAS={state.currentEAS} oldEAS={state.oldEAS} form={form} formRef={formReference[business.IsicForm]}/>) ;
   const setSec4 = ()=> setSec(<SectionIV currentEAS={state.currentEAS} oldEAS={state.oldEAS} formType={form.Form}/>)
   const setSec5 = ()=> setSec(<SectionV currentEAS={state.currentEAS} oldEAS={state.oldEAS}/>)
-  const setSec6 = () => setSec(<Ict currentICT={ state.currentICT} ictData={state.ictData} oldICT={state.oldICT}/>)
-
+  const setSec6 = ()=> setSec(<Ict currentICT={ state.currentICT} ictData={state.ictData} oldICT={state.oldICT}/>)
+  const recState = handleSave;
 
 
 
@@ -78,7 +91,7 @@ function Records({business}){
       <Button variant="warning" onClick={setSec4}>Section IV</Button>{' '}
       <Button variant="danger" onClick={setSec5}>Section V</Button> {' '}
       <Button variant="info" onClick={setSec6}>Section VI</Button>{' '}
-      <Button variant="dark" onClick={setSec6}>Submit All</Button>{' '}
+      <Button variant="dark" onClick={recState}>Save/Submit All</Button>{' '}
       </div>
 
       <Row className="justify-content-md-center">
