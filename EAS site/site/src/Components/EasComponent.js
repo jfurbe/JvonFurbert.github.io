@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 const Eas = ({adminData})=> {
-   const [data, setdata] = useState(adminData())
+   const [data, setdata] = useState()
     console.log(data)
     return(
       <div className="container mt-5">

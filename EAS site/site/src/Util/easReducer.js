@@ -46,7 +46,8 @@ export const reducer = (state = {
           return { ...state, oldICT: action.payload};
       
       case ActionTypes.STORE_OLDEAS:
-          return { ...state, oldEAS: action.payload};
+        
+          return { ...state, oldEAS: action.payload.length > 0 ? action.payload[0] : initialState.oldEAS};
 
       case ActionTypes.GET_ICT:
           return {...state, isLoading: false, errMess: null, businesses: action.payload};
@@ -55,6 +56,7 @@ export const reducer = (state = {
           return {...state, isLoading: false, errMess: null, responseSearch: action.payload};
       
       case ActionTypes.GET_USERDATA:
+        if (action.payload.length > 0) {
           Object.keys(state.currentEAS).map((key)=>{
             Object.keys(state.currentEAS[key]).map((key2)=> {
               state.currentEAS[key][key2] = action.payload[0][key2]
@@ -66,7 +68,40 @@ export const reducer = (state = {
           Object.keys(state.section1).map((key)=>{
             state.section1[key] = action.payload[0][key]
         })
+      }
           return {...state};
+
+      case ActionTypes.IMPORT_RECORD:
+        let payload = action.payload
+        console.log(payload)
+        Object.keys(state.currentICT).forEach((key)=> {
+          state.currentICT[key] = payload[0][key]
+        })
+        Object.keys(state.currentEAS).forEach((key)=> {
+          Object.keys(state.currentEAS[key]).forEach((key2)=> {
+            if (['dic1', 'dic2'].includes(key)){
+              state.currentEAS[key][key2] = payload[2][key2]
+            }
+            else if (key == 'dic3'){
+              state.currentEAS[key][key2] = payload[1][key2]
+              if (key2 == '343421NAF'){
+                state.currentEAS[key][key2] = payload[1][key2.slice(0, key2.length-1) + " 1"]
+              }
+              else if (key2 == '343421NIL'){
+                state.currentEAS[key][key2] = payload[1][key2.slice(0, key2.length-1) + " 1"]
+              }
+            }
+            else if (key == 'dic4'){
+              state.currentEAS[key][key2][0] = payload[1][key2.slice(0, key2.length-1) + " 1"]
+              state.currentEAS[key][key2][1] = payload[1][key2.slice(0, key2.length-1) + " 2"]
+              if (['346421NAF2','346421NILL2'].includes(key2)){
+                state.currentEAS[key][key2][0] = payload[1][key2.slice(0, key2.length-1) + " 3"]
+              state.currentEAS[key][key2][1] = payload[1][key2.slice(0, key2.length-1) + " 4"]
+              }
+            }
+          })
+        })
+        return {...state}
 
       default:
           return state;
@@ -127,8 +162,8 @@ export const initialState = {
             'A1022C':0, 'A9200C':0, 'A6100C':0, 'C2240C':0, 'A8000C':0, 'A1035C':0, 'A1000C':0,
             'C2227C':0, '343421NIL':0},
     dic4 : {'31111NAF1':[0,0], '32142NAF1':[0,0], '322412NAF1':[0,0], '342421NAF1':[0,0], '343421NAF1':[0,0],
-            '346421NAF1':[0,0], '31111NIL1':[0,0], '32142NIL1':[0,0], '322412NIL1':[0,0],
-            '343421NIL1':[0,0], '346421NIL1':[0,0], },
+            '346421NAF1':[0,0],'346421NAF2':[0,0], '31111NIL1':[0,0], '32142NIL1':[0,0], '322412NIL1':[0,0],
+            '343421NIL1':[0,0], '346421NIL1':[0,0], '346421NIL2':[0,0]},
     dic5 : {'PercentageIncomeBusinessTourist':0,'PercentageIncomeVacationTourists':0,'PercentageIncomeLocals':0,'RemittedAbroad':0,
     'NumberEmployees':0,'NumberOwners':0,'Covid':0,'ConstructionActivity1':0,'ConstructionActivity2':0,'ConstructionActivity3':0,
     'RetailingActivity1':0,'RetailingActivity2':0,'RetailingActivity3':0}

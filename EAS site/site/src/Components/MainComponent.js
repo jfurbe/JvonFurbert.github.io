@@ -8,7 +8,7 @@ import ReferenceGuide from './ReferenceGuide';
 import Header from './HeaderComponent';
 //import Footer from './FooterComponent';
 import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
-import { getSearch, responseSearch, getOldIct, emailSearch, getOldEas, adminData, getRecord, getData} from '../Util/ActionCreators';
+import { getSearch, responseSearch, getOldIct, emailSearch, getOldEas, adminData, getRecord, getData, saveRecord} from '../Util/ActionCreators';
 import { UserContext } from "../Util/UserProvider"
 
 const Main = (props)=> {
@@ -60,8 +60,8 @@ const Main = (props)=> {
             <Route exact path='/businessreg' component={() => <BusinessRegister/>} />
             <Route path='/switchboard' component={() => <Switchboard search={responseSearch}/> }/>
             <Route exact path='/refGuide' component={ReferenceGuide}/>
-            <Route exact path='/eas' component={()=> <Eas adminData={adminData}/> } />
-            <Route exact path='/eas/record' component={Records} /> 
+            <Route exact path='/eas' component={()=> <Eas /> } />
+            <Route exact path='/eas/record' component={()=> <Records business={state.businesses[0]} saveRecord={saveRecord} />} /> 
               <Redirect to="/home" />
             </Switch>
         </div>

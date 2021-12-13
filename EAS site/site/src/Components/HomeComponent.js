@@ -9,7 +9,7 @@ import {Button} from 'react-bootstrap';
 //import { baseUrl } from '../shared/baseUrl';
 import ReactHtmlParser from "react-html-parser";
 import { saveRecord} from '../Util/ActionCreators';
-
+import AdminDashboard from './AdminDashboard';
 
 function Home(){
   const [ state, dispatch ] = React.useContext(UserContext)
@@ -32,17 +32,7 @@ function Home(){
   switch(state.userType){  //Switch for stats admin display or regular user
     case 'Admin' :
       return(
-        <div className="container">
-          
-          <div className="row">
-          <div  className="col-4 col-md-5 m-1">
-          <h1 > Good Day Stats Admin</h1>
-          </div>
-          <div  className="col-4 col-md-5 m-1">
-            
-          </div>
-          </div>
-        </div>
+        <AdminDashboard />
       )
     break;
     case 'User' :

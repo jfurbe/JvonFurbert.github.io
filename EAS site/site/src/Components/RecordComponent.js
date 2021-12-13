@@ -45,6 +45,7 @@ var formReference = {                                      //Find Form field inf
 }
 
 function Records({business, saveRecord}){
+  console.log(business)
   const [ state, dispatch ] = React.useContext(UserContext) //Global State
   const [sec, setSec] = useState('')
   var output = Object.entries(formReference[business.IsicForm]).map(([key, value,amt = '']) => ({key,value, amt}));

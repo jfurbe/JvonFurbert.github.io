@@ -78,7 +78,7 @@ export const getOldEas = (searchItem, dispatch) => {
           throw error;
     })
   .then(response => response.json())
-  .then(response => response.length > 0 && dispatch(storeOldEAS(response[0])))
+  .then(response => dispatch(storeOldEAS(response)))
   .catch(error =>  { console.log('post comments', error.message); alert('Your comment could not be posted\nError: '+error.message); });
 };
 
@@ -141,9 +141,9 @@ export const hitSearch = (searchItem) => ({
     payload: searchItem
 });
 
-export const adminData = (dispatch) => {
+export const adminData = (year , dispatch) => {
 
-  return fetch(baseUrl + 'adminData/', {
+  return fetch(baseUrl + 'adminData/' +year , {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -167,6 +167,38 @@ export const adminData = (dispatch) => {
   .then(response => console.log(response))
   .catch(error =>  { console.log('post comments', error.message); alert('Your comment could not be posted\nError: '+error.message); });
 };
+
+export const EASRecord = (record , dispatch) => {
+
+  return fetch(baseUrl + 'easrecord/' + record , {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "same-origin"
+  })
+  .then(response => {
+      
+      if (response.ok) {
+        return response;
+      } else {
+        var error = new Error('Error ' + response.status + ': ' + response.statusText);
+        error.response = response;
+        throw error;
+      }
+    },
+    error => {
+          throw error;
+    })
+  .then(response => response.json())
+  .then(response => dispatch(importEasRecord(response)))
+  .catch(error =>  { console.log('post comments', error.message); alert('Your comment could not be posted\nError: '+error.message); });
+};
+
+export const importEasRecord = (reponse) => ({
+  type: ActionTypes.IMPORT_RECORD,
+  payload: reponse
+});
 
 export const adminDataFind = (reponse) => ({
     type: ActionTypes.ADATA_SEARCH,
@@ -251,7 +283,7 @@ export const saveRecord = (record) => {
     })
   .then(response => response.json())
   .then(response => dispatch(getData(response)))
-  .catch(error =>  { console.log('post comments', error.message); alert('Your data is missing\nError: '+error.message); });
+  .catch(error =>  { console.log('post comments', error.message); alert('There is no current submission\nError: '+error.message); });
 };
 
 export const getData = (response) => (

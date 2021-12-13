@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Button, Row, Col} from 'react-bootstrap';
 import { UserContext } from "../Util/UserProvider"
 
@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 const BusinessReg = (props)=> {
   const {register, handleSubmit} = useForm(); //control,watch, formState: { errors }
   const [ state, dispatch ] = React.useContext(UserContext)
-  let defaultValues = {}
+  const [defaultValues, setdefaultValues] = useState({})
 
   const onSubmit = (values) => {
     console.log(props);
@@ -23,14 +23,9 @@ const BusinessReg = (props)=> {
   }
 
 
-
-
-  if (state.businesses){
-      //props.setDefault(props.business[0])
-      
-      defaultValues = state.businesses[0];
-      console.log(defaultValues.ReferenceNumber)
-  }
+  useEffect(()=> {
+   state.businesses && setdefaultValues(state.businesses[0])
+  }, [state.businesses])
 
 
 

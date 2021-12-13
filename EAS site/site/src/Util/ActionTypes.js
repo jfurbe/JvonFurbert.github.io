@@ -22,3 +22,4 @@ export const ADATA_SEARCH = 'ADATA_SEARCH';
 
 export const SAVE_DATA = 'SAVE_DATA';
 export const GET_USERDATA = 'GET_USERDATA';
+export const IMPORT_RECORD = 'IMPORT_RECORD';

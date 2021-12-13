@@ -11,12 +11,12 @@ function getSection(output, form, sec, data, oldD){
     
     let ref = item.item;
     
-    console.log(oldD)
+    //console.log(oldD)
     if (form[sec].includes(ref) ){
       if (['G','H','M'].includes(ref.slice(ref.length-1))){
         ref = ref.substr(0,ref.length-1)+ref.slice(ref.length-1).toLowerCase()
       }
-      console.log(ref.substr(0,ref.length-1))
+      //console.log(ref.substr(0,ref.length-1))
       arr2.push({
         item:ref,
         description:item.description,
