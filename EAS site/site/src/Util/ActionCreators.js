@@ -191,7 +191,7 @@ export const EASRecord = (record , dispatch) => {
           throw error;
     })
   .then(response => response.json())
-  .then(response => dispatch(importEasRecord(response)))
+  .then(response => console.log(response))
   .catch(error =>  { console.log('post comments', error.message); alert('Your comment could not be posted\nError: '+error.message); });
 };
 
@@ -283,11 +283,45 @@ export const saveRecord = (record) => {
     })
   .then(response => response.json())
   .then(response => dispatch(getData(response)))
-  .catch(error =>  { console.log('post comments', error.message); alert('There is no current submission\nError: '+error.message); });
+  .catch(error =>  { console.log('post comments', error.message); /* dispatch(no current submission)*/ ; });
 };
 
 export const getData = (response) => (
   {
     type: ActionTypes.GET_USERDATA,
+    payload: response
+});
+
+export const getBusinessISIC = (dispatch) => {
+
+
+  return fetch(baseUrl + 'businesses/ISIC/a', {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "same-origin"
+  })
+  .then(response => {
+      //console.log(response);
+      if (response.ok) {
+        return response;
+      } else {
+        var error = new Error('Error ' + response.status + ': ' + response.statusText);
+        error.response = response;
+        throw error;
+      }
+    },
+    error => {
+          throw error;
+    })
+  .then(response => response.json())
+  .then(response => dispatch(hitBusinesses(response)))
+  .catch(error =>  { console.log('post comments', error.message); alert('Your comment could not be posted\nError: '+error.message); });
+};
+
+export const hitBusinesses = (response) => (
+  {
+    type: ActionTypes.HIT_BUSINESSES,
     payload: response
 });

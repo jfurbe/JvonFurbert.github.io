@@ -18,7 +18,6 @@ function Home(){
   const [showRecords, setShowRecords] = useState(true);
 
   useEffect(()=> {
-    console.log(state.businesses)
     state.businesses && setBusiness(state.businesses[0])
     business && setForm(formSel.filter((x)=>x.Form==business.IsicForm)[0])
   }, [ business])

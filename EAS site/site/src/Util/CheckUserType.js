@@ -15,6 +15,9 @@ var userTypeDB = {
    'hbgroup@northrock.bm' : "User",
    'accounts@oleandercycles.bm' : "User",
    'cindy.stewart@pwc.com' : "User",
+   "jonathan@centralfiling.bm" :"User",
+   "mdenwiddie@aeriefoundation.org" : "User",
+   
 }
 
 const checkUserType = (user)=> {

@@ -15,7 +15,7 @@ const LoginModal = ({show, toggle, login})=> {
    }
    return (
       <Modal show={show} onHide={toggle}>
-      <Modal.Header toggle={toggle} closeButton>
+      <Modal.Header  closeButton>
          <Modal.Title>Login</Modal.Title> 
       </Modal.Header>
       <Modal.Body>

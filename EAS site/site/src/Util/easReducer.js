@@ -22,6 +22,7 @@ export const reducer = (state = {
         return {...state, isLoading: false, errMess: null, user: action.payload};
 
       case ActionTypes.HIT_SEARCH:
+          console.log(action.payload.length)
          return {...state, isLoading: false, errMess: null, businesses: action.payload};
 
       case ActionTypes.RESPONSE_SEARCH:
@@ -55,8 +56,14 @@ export const reducer = (state = {
       case ActionTypes.POST_ICT:
           return {...state, isLoading: false, errMess: null, responseSearch: action.payload};
       
+      case ActionTypes.HIT_BUSINESSES:
+          state['busData'] = action.payload
+          return {...state};
+
       case ActionTypes.GET_USERDATA:
-        if (action.payload.length > 0) {
+        if (action.payload.length > 10) {
+          state['data'] = action.payload
+        }else {
           Object.keys(state.currentEAS).map((key)=>{
             Object.keys(state.currentEAS[key]).map((key2)=> {
               state.currentEAS[key][key2] = action.payload[0][key2]
@@ -73,7 +80,8 @@ export const reducer = (state = {
 
       case ActionTypes.IMPORT_RECORD:
         let payload = action.payload
-        console.log(payload)
+        state.currentEAS['ReferenceNumber'] = payload[0]['ReferenceNumber']
+        console.log(state.currentEAS['ReferenceNumber'])
         Object.keys(state.currentICT).forEach((key)=> {
           state.currentICT[key] = payload[0][key]
         })
@@ -85,10 +93,11 @@ export const reducer = (state = {
             else if (key == 'dic3'){
               state.currentEAS[key][key2] = payload[1][key2]
               if (key2 == '343421NAF'){
-                state.currentEAS[key][key2] = payload[1][key2.slice(0, key2.length-1) + " 1"]
+                console.log(key2)
+                state.currentEAS[key][key2] = payload[1][key2.slice(0, key2.length) + " 1"]
               }
               else if (key2 == '343421NIL'){
-                state.currentEAS[key][key2] = payload[1][key2.slice(0, key2.length-1) + " 1"]
+                state.currentEAS[key][key2] = payload[1][key2.slice(0, key2.length) + " 1"]
               }
             }
             else if (key == 'dic4'){
@@ -98,9 +107,14 @@ export const reducer = (state = {
                 state.currentEAS[key][key2][0] = payload[1][key2.slice(0, key2.length-1) + " 3"]
               state.currentEAS[key][key2][1] = payload[1][key2.slice(0, key2.length-1) + " 4"]
               }
+              else if (['343421NAF1','343421NILL1'].includes(key2)){
+                state.currentEAS[key][key2][0] = payload[1][key2.slice(0, key2.length-1) + " 2"]
+              state.currentEAS[key][key2][1] = payload[1][key2.slice(0, key2.length-1) + " 3"]
+              }
             }
           })
         })
+
         return {...state}
 
       default:

@@ -8,7 +8,7 @@ import ReferenceGuide from './ReferenceGuide';
 import Header from './HeaderComponent';
 //import Footer from './FooterComponent';
 import {Switch, Route, Redirect, withRouter} from 'react-router-dom';
-import { getSearch, responseSearch, getOldIct, emailSearch, getOldEas, adminData, getRecord, getData, saveRecord} from '../Util/ActionCreators';
+import { getSearch, responseSearch, getOldIct, emailSearch, getOldEas, adminData, getRecord, getData, saveRecord, getBusinessISIC} from '../Util/ActionCreators';
 import { UserContext } from "../Util/UserProvider"
 
 const Main = (props)=> {
@@ -35,6 +35,9 @@ const Main = (props)=> {
             case 'Admin':
             setShowLogin(false)
             setShowSearch(true)
+
+            getRecord('refs',dispatch)
+            getBusinessISIC(dispatch)
         }
     }, [state.userType])
     
