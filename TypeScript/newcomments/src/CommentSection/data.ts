@@ -1,14 +1,20 @@
+import {atom} from 'recoil';
+import {v4} from 'uuid';
+
 export const data = [
    {
       comment :{
-         id: "0",
+      id: "0",
       name: "J'Von", 
       comment: "Have fun", 
       votes: 0,
       date: new Date(),
       },
       comments: [],
-      commentVoteIndex: [],
+      commentVoteIndex: atom({
+         key: v4(),
+         default: []
+      }),
    },
    {
       comment :{
@@ -19,7 +25,10 @@ export const data = [
       date: new Date(),
       },
       comments: [],
-      commentVoteIndex: [],
+      commentVoteIndex: atom({
+         key: v4(),
+         default: []
+      }),
    },
    {
       comment :{
@@ -30,6 +39,9 @@ export const data = [
       date: new Date(),
       },
       comments: [],
-      commentVoteIndex: [],
+      commentVoteIndex: atom({
+         key: v4(),
+         default: []
+      }),
    },
 ];
