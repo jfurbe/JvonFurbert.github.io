@@ -5,8 +5,7 @@ import {
    useRecoilState,
    useRecoilValue
  } from 'recoil';
-import {commentStore, CommentIndex, CommentsType, uniCommentStack, sortSelector} from './store/store';
-import {v4} from 'uuid';
+import {CommentIndex, CommentsType, uniCommentStack, sortSelector, uniVar, uniSel} from './store/store';
 import Comment from './Comment';
 
 
@@ -15,33 +14,33 @@ type CommentArrProp = {
    commentStack: any,
 }
 
-const ForceUpdate = ()=> {
-   const [update, useupdate] = React.useState(1);
+const ForceUpdate = (x : any)=> {
+   const xx = useRecoilValue<CommentsType>(x);
    console.log('update')
-   return ()=> useupdate(0);
+   return xx;
 }  
 
-const CommentArr = ({comment, commentStack}: CommentArrProp)=> {
-   const comments = useRecoilValue<any[]>(commentStack);
-   const [index, setIndex] = useRecoilState(uniCommentStack);
-   
-   console.log(commentStack);
-   setIndex(commentStack);
-   
-   console.log(useRecoilValue(uniCommentStack))
-   let theseComments = useRecoilValue(sortSelector)
-   let thoseComments = comments.map((x)=> x.key)
-   thoseComments.length !== theseComments.length && ForceUpdate()
-   /* console.log(comments);
-   console.log(theseComments)
-   console.log(thoseComments) */
+const CommentArr = ()=> {
+   const atomStack = useRecoilValue<any[]>(CommentIndex);
+   console.log(atomStack)
+
+   const comments = useRecoilValue(uniSel);
+
+   console.log(comments)
+   console.log(atomStack)
+   let ref: any[];
+   ref = [];
+   if (atomStack[0].key !== '000'){
+   ref = comments.map((x : any)=> (
+      atomStack
+      .map((atom)=> atom.key)
+      .indexOf(
+         x.comment.id)))
+      }
+ 
   return (
      <div>
-      
-      {commentStack.key === 'commentIndex' && comments.length == 1 ?
-      <p></p> :
-      theseComments.map((key : any)=> <Comment comment={comments[thoseComments.indexOf(key.id)]}/>)
-      }
+       {ref.map((x, i)=> <Comment comment={atomStack[x]} color={i%2==0 ? "white" : "#ffe599"}/>)}
 
      </div>
   )

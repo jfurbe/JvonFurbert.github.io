@@ -1,4 +1,4 @@
-import {atom, selector, useRecoilState, useRecoilValue} from 'recoil';
+import {atom, selector, useRecoilState, useRecoilValue, selectorFamily} from 'recoil';
 
 
 export type Comment = {
@@ -55,6 +55,42 @@ export const CommentIndex = atom<any>({
 export const uniCommentStack = atom({
    key: 'uniCommentStack',
    default: CommentIndex
+})
+
+export const uniVar = atom<any[]>({
+   key: 'uniVar',
+   default: []
+})
+
+export const uniReference = atom({
+   key:'uniReference',
+   default:''
+})
+
+export const uniSel = selector({
+   key: 'uniSel',
+   get: ({get})=> {
+   const list = get(uniCommentStack)
+   console.log(list)
+
+   let commlist = list.map((x : any)=> get(x));
+   return commlist.sort((a: any,b: any)=> (a.comment.votes < b.comment.votes) ? 1 : ((b.comment.votes < a.comment.votes) ? -1 : 0))
+   }
+})
+
+export const responseSelector = selectorFamily({
+   key: 'reponseSelector',
+   get: (commRef) => ({get})=> {
+      
+      const commentStack = get(uniCommentStack);
+      console.log(commentStack)
+      console.log(commRef)
+      let responses = commentStack.filter((x : any)=> x.key === commRef)
+      responses = useRecoilValue(useRecoilValue<CommentsType>(responses[0]).commentVoteIndex)
+      console.log(responses)
+      //responses = 
+      return responses.map((x:any)=> get(x))
+   }
 })
 
 export const sortSelector = selector({

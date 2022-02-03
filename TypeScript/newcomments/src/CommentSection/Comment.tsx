@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
 import {Alert, Col, Row, Button} from 'react-bootstrap';
-import {CommentsType, commentStore, CommentIndex} from './store/store';
+import {CommentsType, commentStore, CommentIndex, uniCommentStack, uniVar, uniReference} from './store/store';
 import {useRecoilState, useRecoilValue} from 'recoil';
 import WriteComment from './WriteComment';
-import CommentArr from './CommentArr';
+import ResponseArr from './ResponseArr';
 
 type Comms = {
-   comment: any
+   comment: any,
+   color: string
 }
 
-const Comment = ({comment}: Comms)=> {
+
+const Comment = ({comment, color}: Comms)=> {
    //console.log(comment)
    const [theComment, setTheComment] = useRecoilState<CommentsType>(comment)
    const [addResponse, isAddResponse] = useState(false);
@@ -41,9 +43,11 @@ const Comment = ({comment}: Comms)=> {
        Math.ceil(t/3600000) + ' hours ago'
    }
    
+   console.log(comment)
+
    return (
    <>
-   <Alert variant="light">
+   <Alert variant="light" style={{backgroundColor:color}}>
    <Alert.Heading>{thisComment.name} @ <a style={{fontStyle: 'italic',fontSize:'1rem' }}>{timeDisplay()}</a></Alert.Heading>
    <hr />
    <Row>
@@ -57,13 +61,6 @@ const Comment = ({comment}: Comms)=> {
    <Row>
       <Col md={{offset: 10}}><Button variant="dark" onClick={()=> isAddResponse(!addResponse)}>Reply</Button></Col>
    </Row>
-  {theComment.comments.length > 0 && 
-   <Row>
-      <hr className="mt-2"/>
-      <Col md={{offset:1}}>{<CommentArr commentStack={theComment.commentVoteIndex} />}
-      </Col>
-   </Row>
-   } 
    
    {addResponse && 
       <Row >
@@ -72,15 +69,17 @@ const Comment = ({comment}: Comms)=> {
       </Row>
    }
    
+   {theComment.comments.length > 0 && 
+   <Row>
+      <hr className="mt-2"/>
+      <Col md={{offset:1}}>{<ResponseArr commRef={comment}/>}
+      </Col>
+   </Row>
+   } 
    </Alert>
    
    </>
    )
 }
-
-const replaceItemAtIndex = (arr : any[], index : number, newVal : any)=> {
-   return [...arr.slice(0, index), newVal, ...arr.slice(index + 1)]
-}
-
 
 export default Comment;
