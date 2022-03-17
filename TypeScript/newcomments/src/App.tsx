@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import CommentSection from './CommentSection/CommentSection';
+import IdBox from './IdSection/IdBox';
+import Tetris from './Tetris/Tetris';
 import './App.css';
 import {
   RecoilRoot,
@@ -11,15 +13,21 @@ import {
 } from 'recoil';
 
 function App() {
+  const [play, setPlay] = useState(false);
   return (
     <RecoilRoot>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" width="150px"/>        
+      <div className="App-header">
+      <button onClick={()=> setPlay(!play)}>Play?</button>
+      <IdBox/> 
+        <img src={logo} className="App-logo" alt="logo" width="150px"/>   
+           
         <div style= {{width:"600px"}}>
-        <CommentSection/>
+        {play ? 
+        <Tetris/> :
+        <CommentSection/> }
       </div>
-      </header>
+      </div>
     </div>
     </RecoilRoot>
   );

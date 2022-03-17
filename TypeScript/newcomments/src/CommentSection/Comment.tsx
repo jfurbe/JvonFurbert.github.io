@@ -47,7 +47,7 @@ const Comment = ({comment, color}: Comms)=> {
 
    return (
    <>
-   <Alert variant="light" style={{backgroundColor:color}}>
+   <Alert variant="light" style={{backgroundColor:color}} className="mt-3">
    <Alert.Heading>{thisComment.name} @ <a style={{fontStyle: 'italic',fontSize:'1rem' }}>{timeDisplay()}</a></Alert.Heading>
    <hr />
    <Row>

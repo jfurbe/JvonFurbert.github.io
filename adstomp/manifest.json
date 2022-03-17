@@ -1,0 +1,12 @@
+{
+   "manifest_version": 2,
+   "name": "adStomper",
+   "version": "1.2",
+   "description": "Removes ads from certain sites",
+   "content_scripts": [
+      {
+         "matches": ["https://www.zerohedge.com/*"],
+         "js": ["./main.js"]
+      }
+   ]
+}

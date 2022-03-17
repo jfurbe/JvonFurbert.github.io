@@ -45,7 +45,7 @@ const ResponseArr = ({commRef}: CommentArrProp)=> {
   return (
      <div>
       {/*  {atomStack.map((x)=> <Comment comment={x}/>)} */}
-       {ref.map((x, i)=> <Comment comment={atomStack[x]} color={i%2==0 ? "#ffe289" : "#ffe28a"}/>)}
+       {ref.map((x, i)=> <Comment comment={atomStack[x]} color={'#fffdd0'}/>)} {/* //i%2==0 ? '#282c34' : "#ffe28a" */}
      </div>
   )
 }

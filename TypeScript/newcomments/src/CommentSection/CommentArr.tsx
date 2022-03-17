@@ -40,7 +40,7 @@ const CommentArr = ()=> {
  
   return (
      <div>
-       {ref.map((x, i)=> <Comment comment={atomStack[x]} color={i%2==0 ? "white" : "#ffe599"}/>)}
+       {ref.map((x, i)=> <Comment comment={atomStack[x]} color={'white'}/>)}
 
      </div>
   )
