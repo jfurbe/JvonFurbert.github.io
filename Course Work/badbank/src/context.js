@@ -12,7 +12,7 @@ function Card(props){
       const txt = props.txtcolor ? ' text-' + props.txtcolor: ' text-white';
       return 'card mb-3 ' + bg + txt;
     }
-  
+    console.log(props.title);
     return (
       <div className={classes()} style={{maxWidth: "18rem"}}>
         <div className="card-header">{props.header}</div>

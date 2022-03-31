@@ -4,14 +4,15 @@ type Piece = {
    x : number,
    y : number,
    id : string,
+   color? : string,
 
 }
-const Piece = ({x,y,id}: Piece)=> {
+const Piece = ({x,y,id,color='white'}: Piece)=> {
 
    return(
       <div id={id}
       className={'box1'} 
-      style={{left:450+x*50+'px', top:250+y*50+'px'}}></div>
+      style={{left:485+x*25+'px', top:285+y*25+'px', backgroundColor:color}}></div>
    )
 }
 

@@ -9,7 +9,7 @@ function Deposit(){
   const [status, setStatus] = useState('');
 
   function validate(field, label){
-    if (field.match(/[A-Za-z]/)) {
+    if (field.match(/\D/)) {
       setStatus('Error: ' + label);
       setTimeout(() => setStatus(''),3000);
       return false;
@@ -19,6 +19,8 @@ function Deposit(){
 
   const handleDeposit = ()=> {
     user.balance = parseInt(user.balance) + parseInt(amount);
+    setStatus('Deposit Success!');
+    setTimeout(() => setStatus(''),3000);
   }
 
   function clearForm(){
@@ -36,6 +38,7 @@ function Deposit(){
       bgcolor="dark"
       header="Deposit"
       status={status}
+      title={'Welcome '+user.name }
       body={(  
               <>
               Balance<br/>
@@ -43,7 +46,11 @@ function Deposit(){
               Deposit Amount<br/>
               <input type="input" className="form-control" id="amount" placeholder="Enter Amount" value={amount} onChange={e => setAmount(e.currentTarget.value)}/><br/>
               <div className="d-flex justify-content-center">
+              {amount ?
               <button type="submit" className="btn btn-light" onClick={clearForm}>Deposit</button>
+              :
+              <button disabled type="submit" className="btn btn-light" onClick={clearForm}>Deposit</button>
+              }
               </div>
               </>
       )

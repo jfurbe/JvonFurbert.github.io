@@ -16,6 +16,10 @@ function CreateAccount(){
         setStatus('Error: ' + label);
         setTimeout(() => setStatus(''),3000);
         return false;
+      } else if (label=='password' && field.length<9){
+        setStatus('Error: Password Too short');
+        setTimeout(() => setStatus(''),3000);
+        return false;
       }
       return true;
   }
@@ -50,14 +54,19 @@ function CreateAccount(){
               Password<br/>
               <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
               <div className="d-flex justify-content-center">
+              {name.length<3 ?
+              <button disabled type="submit" className="btn btn-light" onClick={handleCreate}>Create Account</button>
+              :
               <button type="submit" className="btn btn-light" onClick={handleCreate}>Create Account</button>
+              }            
               </div>
               </>
             ):(
               <>
               <h5>Success</h5>
               <div className="d-flex justify-content-center">
-              <button type="submit" className="btn btn-light" onClick={clearForm}>Add another account</button>
+              
+              <button  type="submit" className="btn btn-light" onClick={clearForm}>Add another account</button>
               </div>
               </>
             )}
