@@ -1,0 +1,83 @@
+@font-face {
+  Font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+body {
+  Font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  margin: 0;
+
+}
+
+
+#Footer .p {
+  line-height:.6;
+  color:#e2e8f0;
+}
+
+#Footer .h5 { 
+  color: #e2e8f0;
+}
+
+.Caro-Img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.Grid-Img {
+  
+  object-fit: fit; 
+  object-position: 0 0;
+  
+  height:100%;
+  width:100%;
+  
+}
+
+.dropdown .dropdown-menu {background-color: #e2e8f0; text-decoration: none;}
+.container .dropdown .dropdown-menu a:hover
+{
+  color: #e2e8f0;
+  background-color: #292b2c;
+  border-color: #292b2c;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,70 @@
+
+.App {
+
+  position:relative;
+  background: #FFFFFF;
+}
+
+.App-Title {
+  position: static;
+  
+ 
+/* h2 alt */
+font-family: 'Poppins';
+font-style:normal;
+font-weight: 700;
+font-size: 31.25px;
+line-height: 138%;
+
+text-align:center;
+
+color: #130B43;
+/* Inside auto layout*/
+flex: none;
+order:0;
+flex-grow: 0;
+margin: 10px 0px 0px 10px;
+}
+
+.App-Img {
+  position: absolute;
+  width:55.43px;
+  height: 61.52px;
+  top: -7.93%;
+  left:48%;
+
+
+}
+
+.App-Img2 {
+  position: absolute;
+  width:26.27px;
+  height: 26.27px;
+  top:3.12%;
+  left:50%;
+}
+.App-Img3 {
+  position: static;
+  width: 74.4px;
+  height:12px;
+  top:4px;
+  margin: 10px 00px 0px 27px;
+}
+
+.App-frame-254 {
+  
+  position:absolute;
+  width:680px;
+  height:155px;
+  
+  top:104px;
+}
+
+.Main-container {
+  position: absolute;
+
+  height:800px;
+  top: 291px;
+
+  box-shadow: 0px 4px 42px rgba(79,144,205, 0.15);
+}

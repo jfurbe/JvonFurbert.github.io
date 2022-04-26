@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "create-react-app": "^5.0.0"
+    "create-react-app": "^5.0.1"
   },
   "devDependencies": {
     "typescript": "^4.5.4"

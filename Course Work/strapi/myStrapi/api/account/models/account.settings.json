@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "accounts",
+  "info": {
+    "name": "account"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "username": {
+      "type": "email"
+    },
+    "password": {
+      "type": "password"
+    }
+  }
+}
