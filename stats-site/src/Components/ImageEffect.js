@@ -2,19 +2,13 @@ import React, {useState} from 'react';
 import {Image} from 'react-bootstrap';
 
 const panelFlat = {
-   maxWidth: '500px',
-   overflow: 'hidden',
-   height:'175px',
-   position:'relative',
-   transition: 'height 1s',
    
+   transition: 'transform .2s',
 }
 const panelActive = {
-   maxWidth: '500px',
-   overflow: 'hidden',
-   height:'550px',
-   position:'relative',
-   transition: 'height 1s',
+ 
+   transform: 'scale(1.3)',
+   transition: 'transform .2s',
 }
 
 const ImageEffect = ({image})=> {
@@ -37,7 +31,7 @@ const ImageEffect = ({image})=> {
            onMouseLeave={handleImageClick}
            aria-controls="example-collapse-text"
            aria-expanded={open}
-           style={{maxWidth: '500px', height:'initial', position:'absolute', bottom:'25px'}}
+           style={{maxWidth: '20vw',}}
          />
          </div>
         </div>

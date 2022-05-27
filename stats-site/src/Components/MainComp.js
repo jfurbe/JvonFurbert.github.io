@@ -6,23 +6,22 @@ import MainGrid from './MainGrid';
 import KeyIndicators from './KeyIndicators.js';
 import Footer from './Footer.js';
 import caro3 from '../Resources/caro-3.jpg';
-import bdaBg from '../Resources/bda-bg1.jpg';
+import bdaBg from '../Resources/bda-bg2.jpg';
 
 function MainComp() {
 
   return(
-    <div>
-      <Header/>
-      <div style={{height:'137px'}}></div>
-      <div className="text-center p-2 " style={{backgroundImage:`url(${bdaBg})`, backgroundSize:'cover', backgroundPosition:'center', height:'100vh'}}>
-      <div className="d-inline-block align-middle" style={{width:'35%'}}><KeyIndicators/></div>
-      <div className="d-inline-block align-middle" style={{width:'10%'}}></div>
-      <div className="d-inline-block align-middle" style={{ width:'35%'}}><Caro/></div>
+    <div id="Home">
+      <div id="main-bg-div" className="text-center" style={{backgroundImage:`url(${bdaBg})`}}>
+        <div className="text-center" style={{maxWidth: '1400px', margin:'auto'}}>
+        <div className="d-inline-block align-middle" style={{width:'40%'}}><KeyIndicators/></div>
+        <div className="d-inline-block align-middle" style={{width:'10%'}}></div>
+        <div className="d-inline-block align-middle" style={{ width:'40%'}}><Caro/></div>
+        </div>
       </div>
       <MainGrid/>
     
-      <div style={{height:'140px'}}></div>
-      <Footer/>
+    
     </div>
     
   )

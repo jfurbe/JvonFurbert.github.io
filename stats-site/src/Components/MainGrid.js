@@ -24,13 +24,9 @@ function MainGrid() {
         <b>Explore below the statistics from our various divisions.</b>
       </Alert>
 
-        <Row className="w-80 justify-content-md-center" style={{minHeight:'200px'}}>
+        <Row className="w-80 justify-content-md-center" style={{minHeight:'10em'}}>
         {picArr.map(p=> 
-          <Col md={{ span: 5, offset: 0}}>
-        {/*  <Image  className="Grid-Img p-2"
-          src={p}
-          alt={p.toString()}
-        />*/}
+          <Col className='' md={{ span: 3, offset: 0}} >
           <ImageEffect image={p}/>
           </Col>
         )}

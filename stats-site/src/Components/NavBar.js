@@ -1,13 +1,16 @@
 import React from 'react';
 import {Nav, Navbar, Container, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import CoatOfArms from '../Resources/Bermuda-coat-of-arms_2.png';
+
 
 function NavBar(){
 
 return (
-  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark"  fixed="top">
+  <>
+  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark"  fixed="top" id="header">
   <Container >
-    <Navbar.Brand href="#Home">
+    <Navbar.Brand href="\#Home">
       <img
         src={CoatOfArms}
         width="10%"
@@ -23,16 +26,16 @@ return (
         
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
-      <Nav justify  defaultActiveKey="/home"
+      <Nav justify  defaultActiveKey="\"
         className=" d-flex my-3 my-lg-0 p-1"
         style={{ maxHeight: '100px', fontSize:'125%', letterSpacing: '.2rem'}}
         navbarScroll
       >
-        <Nav.Link href="#action1">Home</Nav.Link>
+        <Nav.Link href="\#Home">Home</Nav.Link>
         <Nav.Link href="#action2">Publications</Nav.Link>
         <NavDropdown bg="dark" title="Divisions" id="navbarScrollingDropdown">
           <NavDropdown.Item  href="#action3">Social Division</NavDropdown.Item>
-          <NavDropdown.Item href="#action4">Business Division</NavDropdown.Item>
+          <NavDropdown.Item href="/business">Business Division</NavDropdown.Item>
           <NavDropdown.Item href="#action4">Social Division</NavDropdown.Item>
           <NavDropdown.Item href="#action4">Research Division</NavDropdown.Item>
           <NavDropdown.Divider />
@@ -45,8 +48,15 @@ return (
       </Nav>
       
     </Navbar.Collapse>
+    
   </Container>
+ {/*} <div>
+  <p className="mx-3" style={{color: "white"}}>Login</p> 
+  </div>
+*/}
 </Navbar>
+
+</>
 )
 }
 

@@ -20,43 +20,46 @@ let myVar;
 
 
 const getNewPosition = (pos1, pos2, old, setOld)=> {
-    myVar = pos1 +"x"+pos2
-    let start = [pos1, pos2]
-    setOld((prev)=> [...prev, start])
-    document.getElementById(myVar).src=bg  
-    document.getElementById(myVar).src=prize  
     
-    let arrayCheck = (a1, a2)=> {
+    let start = [pos1, pos2]
+    let stack = [start];
+
+    let checkOld = (a1, a2)=> {
         console.log(a2,a1)
         return !JSON.stringify(a2).includes(JSON.stringify(a1))
-
     }
 
-    let checkWin = (pos1, pos2)=> {
-       return maze.maze[pos1][pos2].length > 1 && <Win/>
-    }
-    
-    let south = [pos1+1, pos2]
-    if  (maze.maze[south[0]][south[1]] != 'wall' && arrayCheck(south,old)) {
-        return [...south, old]
-    }
-    let west = [pos1, pos2+1]
-    if  (maze.maze[west[0]][west[1]] != 'wall' && arrayCheck(west,old)){
-        return [...west, old]
-    }
-    let east = [pos1, pos2-1]
-    if  (maze.maze[east[0]][east[1]] != 'wall' && arrayCheck(east,old)){
-        return [...east, old]
-    }
-    let north = [pos1-1, pos2]
-    if (maze.maze[north[0]][north[1]] != 'wall' && arrayCheck(north,old)){
-        return [...north, old]
+            
+
+    console.log(stack)
+    while(stack.length >0){
+        let curr = stack.pop();
+        setOld((prev)=> [...prev, curr])
+        myVar = curr[0] +"x"+curr[1];
+        //Color Spot
+        document.getElementById(myVar).src=bg;
+        document.getElementById(myVar).src=prize;
+
+        let south = [curr[0]+1, curr[1]];
+        if  (maze.maze[south[0]][south[1]] != 'wall' && arrayCheck(south,old)) {
+             stack.push([...south, old]);
+        }
+        let west = [curr[0], curr[1]+1];
+        if  (maze.maze[west[0]][west[1]] != 'wall' && arrayCheck(west,old)){
+            stack.push([...west, old]);
+        }
+        let east = [curr[0], curr[1]-1];
+        if  (maze.maze[east[0]][east[1]] != 'wall' && arrayCheck(east,old)){
+            stack.push([...east, old]);
+        }
+        let north = [curr[0]-1, curr[1]];
+        if (maze.maze[north[0]][north[1]] != 'wall' && arrayCheck(north,old)){
+            stack.push([...north, old]);
+        }
+        console.log(stack)
     }
 
-    //setOld((prev)=> [...prev, start])
-    old.pop()
-    setOld((prev)=> [start, ...prev])
-    return [...old.pop(), old]
+
 }
 
 function Win() {
@@ -69,17 +72,18 @@ export default function MazeBuild() {
    // const [pageWidth, setPageWidth] = useState('');
    let myVar;
    let myInterval;
-   const [old, setOld] = useState([[0,start[0]]])
+   const [old, setOld] = useState([[0,start[0]]]);
+   let queue = [];
 
-
+    //Update positions periodically
     useEffect(()=> {
         console.log(pos1,pos2)
-        
-       myInterval = setInterval(function(){ 
+        getNewPosition(pos1, pos2, old, setOld)
+      /* myInterval = setInterval(function(){ 
             [pos1, pos2] = getNewPosition(pos1, pos2, old, setOld)
                         
         }, 500); 
-        return ()=> clearInterval(myInterval)
+        return ()=> clearInterval(myInterval)*/
     }, [old])
     
     return(

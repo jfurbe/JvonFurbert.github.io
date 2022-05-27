@@ -5,12 +5,9 @@ import {Container} from 'react-bootstrap';
 function Header() {
 
   return (
-    <div>
-      <div id="Home">
+    <div id="Home">
       <NavBar/>
-      </div>
-    </div>
-    
+    </div> 
 
   )
 }
