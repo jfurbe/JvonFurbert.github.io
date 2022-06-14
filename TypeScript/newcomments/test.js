@@ -1,7 +1,5 @@
 const { updateLanguageServiceSourceFile } = require("typescript");
 
-
-
 const CreateArena = (x,y)=> {
   var arena = Array(y);
   var run = 0;
@@ -16,7 +14,7 @@ const CreateArena = (x,y)=> {
         } 
     }
     }
-    
+
     const update = (arena)=> {
       var n = 0;
       const addOne = (x,y)=> {
@@ -31,25 +29,24 @@ const CreateArena = (x,y)=> {
           arena[i][j] = [i,j]
           let a = addOne(i,j)
           //arena[a[0]][a[1]] = 0;
-          console.log(a[0])  
+          console.log(a[0])
         }
         )()
         ))
       }
 
       const innerF = ()=> {
-        
         arena[n+0][3]=0
         n+=1;
       }
-      
+
       return innerF;
       }
     const uppy = update(arena);
     run < 2 ?
       build():
-      uppy(); 
-    
+      uppy();
+
     return arena;
   }
   return inner;

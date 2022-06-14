@@ -30,7 +30,7 @@ function Caro(){
     <br/>
     <h2 style={{color:'#e2e8f0', textShadow:'3px 3px 3px #000000'}}>Latest Releases</h2>
     <Card className='mx-auto p-3 m-3' style={styleC}>
-    <Card.Text id="55" className="fs-5" style={style}>
+    <Card.Text id="55" className="fs-6" style={style}>
       <ul>
       <p>January 2022 Consumer Price Index</p>
       <p>December 2021 Retail Sales Index</p>
@@ -42,7 +42,7 @@ function Caro(){
     <br/>
     <h2 style={{color:'#e2e8f0', textShadow:'3px 3px 3px #000000'}}>Surveys Currently Running</h2>
     <Card className='mx-auto p-3 m-3' style={styleC}>
-    <Card.Text id="56" className="fs-5" style={style}>
+    <Card.Text id="56" className="fs-6" style={style}>
       
       <ul>
       <li><a href="https://kind-turing-b32c16.netlify.app/">Economic Activity Survey</a></li>

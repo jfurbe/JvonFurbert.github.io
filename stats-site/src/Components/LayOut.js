@@ -4,6 +4,9 @@ import Footer from './Footer';
 import {Routes, Route, Outlet} from 'react-router-dom';
 import Business from './Divisions/Business/Business';
 import MainComp from './MainComp';
+import Research from './Divisions/Research/Research';
+import Coicop from './Divisions/Research/Coicop';
+
 
 function LayOut(){
 
@@ -13,7 +16,9 @@ function LayOut(){
       <Route path='/' element={<LayOut2 />}>
         <Route index element={<MainComp />}/>
         <Route path='/business' element={<Business />}/>
-        
+        <Route path='/research' element={<Research />}>
+          <Route path='coicop' element={<Coicop />}/>
+        </Route>
       </Route>
       </Routes>
     </>

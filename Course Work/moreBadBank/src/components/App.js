@@ -21,8 +21,7 @@ function App(){
         <Route path='/withdraw' element={<Withdraw/>}/>
         <Route path='/allData' element={<AllData/>}/>
       </Route>
-      </Routes>
-      
+      </Routes>      
     </>
   )
 }

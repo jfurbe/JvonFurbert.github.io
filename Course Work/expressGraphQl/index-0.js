@@ -5,7 +5,19 @@ var { buildSchema } = require('graphql');
 // Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
   type Query {
-    hello: String
+    contacts: [Contact]
+  }
+
+  type Contact {
+    name: String,
+    email: String,
+    age: Int,
+    courses:[Course]
+  }
+
+  type Course {
+    number: String,
+    name: String
   }
 `);
 
@@ -14,7 +26,10 @@ var root = {
   hello: () => {
     return 'Hello world!';
   },
-};
+
+var getContacts = {
+  
+}
 
 var app = express();
 app.use('/graphql', graphqlHTTP({

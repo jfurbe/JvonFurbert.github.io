@@ -45,7 +45,7 @@ const months = [
 function KeyStats({onEnter, style, onLeave}){
   let thisDay = new Date()
   
-  const {loading, error, data} = useQuery(queries.cpiKey, {variables: {year: thisDay.getFullYear()}});
+  const {loading, error, data} = useQuery(queries.keyStats, {variables: {year: thisDay.getFullYear()}});
   
   let cpiData={data:{}, percent:{}};
   let rsiData={data:{}, percent:{}};
@@ -81,7 +81,7 @@ function KeyStats({onEnter, style, onLeave}){
     icon : shop,
     up : (rsiUp ? up : down),
     high: rsiPercent+'%',
-    text:`Sales volume increase to ${rsiData.data[rsiLen-1]?.Total.toFixed(1)} for ${rsiData.data[rsiLen-1]?.Month} ${thisDay.getFullYear()}`
+    text:`Sales volume ${(rsiUp ? 'increased' : 'decreased')} to ${rsiData.data[rsiLen-1]?.Total.toFixed(1)} for ${rsiData.data[rsiLen-1]?.Month} ${thisDay.getFullYear()}`
     
     },
     {

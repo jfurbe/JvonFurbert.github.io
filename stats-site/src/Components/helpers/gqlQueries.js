@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
 const queries = {
-  cpiKey : gql`
+  keyStats : gql`
   query cpi($year: String!){
     cpi(query:{Year: $year}){
       April
@@ -50,7 +50,27 @@ const queries = {
         _id
       }
 
+  }`,
+  cpiYears: gql`
+  query cpiYears($start: String!, $end: String!){
+    cpis(query:{Year_gte: $start, Year_lte: $end}){
+      Average
+      Year
+      _id
+    }
+  }`,
+  coicopCats: gql`
+  query coicopCats{
+    coicops(query:{UN_exists:true}, limit:500) {
+      BDA
+      Codes
+      Description
+      UN
+      _id
+      index
+    }
   }`
+ 
 };
 
 export default queries;

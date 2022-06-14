@@ -22,7 +22,7 @@ function App() {
       <IdBox/> 
         <img src={logo} className="App-logo" alt="logo" width="150px"/>   
            
-        <div style= {{width:"600px"}}>
+      <div style= {{width:"600px"}}>
         {play ? 
         <Tetris/> :
         <CommentSection/> }

@@ -96,7 +96,7 @@ function Login(){
         </Accordion.Body>
       </Accordion.Item>
         
-        <Accordion.Item id="balance" eventKey="2">
+        <Accordion.Item id="balance" eventKey="2" onClick={()=>setKey('0')}>
           <Accordion.Header>Your Balance</Accordion.Header>
           <Accordion.Body>
           {completetion && <h3 style={{color:'green'}}>Login Success</h3>}  

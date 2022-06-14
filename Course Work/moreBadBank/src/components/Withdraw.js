@@ -26,7 +26,6 @@ function Withdraw(){
   return (
       <Card className="cards"  style={{height:'70%'}}>
       <Card.Body>
-        
         <Card.Img variant="top" src={bank} style={{left:'0%', opacity: '10%', position:'absolute'}}/>
         <h2>Withdraw</h2>
         {error && <h6 style={{color:'red'}}>Please Deposit correct amount</h6>}

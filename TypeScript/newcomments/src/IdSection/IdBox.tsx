@@ -13,13 +13,7 @@ const style = {
 
 const IdBox = ()=> {
 
-   const uniqSort = function(arr : any) {
-      const breadcrumbs = {};
-      
-      return arr.sort((a :any, b:any) => a - b);
-  };
-  
-  console.log(uniqSort([4,2,2,3,2,2,2])); // => [2,3,4]
+
 
    return (
       <Alert variant="light" style={style.cont}>

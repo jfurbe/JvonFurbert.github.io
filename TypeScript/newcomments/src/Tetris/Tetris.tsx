@@ -11,7 +11,7 @@ const Tetris = ()=> {
       <div>
          <Arena/>
       </div>
-      <div style={{top:'385px', border:'yellow sold 3px'}}></div>
+
    </div>
    )
 }

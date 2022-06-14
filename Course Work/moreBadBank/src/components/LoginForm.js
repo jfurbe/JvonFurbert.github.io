@@ -3,9 +3,9 @@ import {Form, Button} from 'react-bootstrap';
 
 function LoginForm({checkDataBase, login}){
    
-  function handleLogin(e, goog=null){
+  function handleLogin(e){
     e.preventDefault();
-    console.log(e, goog)
+    console.log(e)
     checkDataBase(e.target[0].value, e.target[1].value, e.target[2].value);
   }
 
@@ -34,7 +34,7 @@ function LoginForm({checkDataBase, login}){
     Submit
   </Button>
   <div className="pt-2">
-  <Button variant="secondary" onClick={(e, goog='goog')=> handleLogin(e, goog)}>
+  <Button variant="secondary" onClick={null}>
     Sign in with Google
   </Button>
   </div>

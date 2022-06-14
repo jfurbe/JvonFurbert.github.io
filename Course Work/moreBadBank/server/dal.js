@@ -1,4 +1,4 @@
-require('dotenv').config({path: './.env'});
+require('dotenv').config();
 const MongoClient = require('mongodb').MongoClient;
 const url = `mongodb+srv://badbankadmin:${process.env.password}@cluster0.ibie1.mongodb.net/?retryWrites=true&w=majority`;
 let db   = null;
