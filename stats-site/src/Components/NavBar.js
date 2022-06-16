@@ -1,6 +1,5 @@
 import React from 'react';
 import {Nav, Navbar, Container, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
 import CoatOfArms from '../Resources/Bermuda-coat-of-arms_2.png';
 
 
@@ -9,7 +8,7 @@ function NavBar(){
 return (
   <>
   <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark"  fixed="top" id="header">
-  <Container >
+    <div className='container'>
     <Navbar.Brand href="\#Home">
       <img
         src={CoatOfArms}
@@ -37,7 +36,7 @@ return (
           <NavDropdown.Item  href="#action3">Social Division</NavDropdown.Item>
           <NavDropdown.Item href="/business">Business Division</NavDropdown.Item>
           <NavDropdown.Item href="#action4">Social Division</NavDropdown.Item>
-          <NavDropdown.Item href="#action4">Research Division</NavDropdown.Item>
+          <NavDropdown.Item href="/research">Research Division</NavDropdown.Item>
           <NavDropdown.Divider />
           
         </NavDropdown>
@@ -49,7 +48,7 @@ return (
       
     </Navbar.Collapse>
     
-  </Container>
+    </div>
  {/*} <div>
   <p className="mx-3" style={{color: "white"}}>Login</p> 
   </div>

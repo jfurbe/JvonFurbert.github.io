@@ -6,7 +6,8 @@ import Business from './Divisions/Business/Business';
 import MainComp from './MainComp';
 import Research from './Divisions/Research/Research';
 import Coicop from './Divisions/Research/Coicop';
-
+import Cpi from './Divisions/Business/Cpi';
+import Hes from './Divisions/Research/Hes';
 
 function LayOut(){
 
@@ -15,9 +16,12 @@ function LayOut(){
     <Routes>
       <Route path='/' element={<LayOut2 />}>
         <Route index element={<MainComp />}/>
-        <Route path='/business' element={<Business />}/>
+        <Route path='/business' element={<Business />}>
+          <Route path='cpi' element={<Cpi/>} />
+        </Route>
         <Route path='/research' element={<Research />}>
           <Route path='coicop' element={<Coicop />}/>
+          <Route path='hes' element={<Hes/>}/>
         </Route>
       </Route>
       </Routes>

@@ -26,12 +26,13 @@ const ImageEffect = ({image})=> {
         <div>
          <div className='ps-4' style={showImage}>
           <Image
+          
             src={image}
            onMouseEnter={handleImageClick}
            onMouseLeave={handleImageClick}
            aria-controls="example-collapse-text"
            aria-expanded={open}
-           style={{maxWidth: '20vw',}}
+           style={{width: '20vw',maxWidth: '300px'}}
          />
          </div>
         </div>

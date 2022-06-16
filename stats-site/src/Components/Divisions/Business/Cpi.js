@@ -15,18 +15,18 @@ function Cpi() {
   
   console.log(d)
   return (
-    <div id="cpi">
+   <div id="cpi"> 
+    <div id="main-bg-div" className="text-center" style={{backgroundImage:`url(${Bg})`}}>
+      <div className="container">
       <h1>Consumer Price Index</h1>
-      <div id="main-bg-div" className="text-center" style={{backgroundImage:`url(${Bg})`}}>
       
       
       {!loading && 
       <LineChart data={[d]}/>
       }
-      
+      </div>  
     </div>
-    
-    </div>
+  </div>
   )
 }
 
